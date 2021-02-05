@@ -26,39 +26,3 @@ For each test case, print your results in $M$ lines, each contains the shortest 
 
 
 对数据进行预处理，在输入时记录每个点到第1个点的距离`dist[i]`，由于是一个圆环，所以两点之间只有两条路径，判断一下即可。
-```cpp
-#include <iostream>
-#include <cstdio>
-
-using namespace std;
-
-int a[100005], dis[100005];
-
-int main() {
-    dis[1] = 0;
-
-    int n, sum = 0;
-    scanf("%d", &n);
-
-    for (int i = 1; i <= n; ++i) {
-        scanf("%d", &a[i]);
-        sum += a[i];
-        dis[i + 1] = dis[i] + a[i];
-    }
-
-    int m;
-    scanf("%d", &m);
-
-    while (m--) {
-        int b1, b2;
-        scanf("%d%d", &b1, &b2);
-        if (b2 < b1) swap(b1, b2);
-
-        int s1 = dis[b2] - dis[b1];
-        int s2 = sum - s1;
-        printf("%d", s1 < s2 ? s1 : s2);
-
-        if (m) putchar('\n');
-    }
-}
-```

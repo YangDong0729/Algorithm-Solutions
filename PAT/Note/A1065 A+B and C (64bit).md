@@ -24,38 +24,8 @@ Case #3: false
 
 
 
-关键就是C也在$[−2^{63},2^{63}]$内，所以用long long存储A和B，如果A+B溢出，再根据A和B的符号就可以确定A+B和C的大小关系。
+关键就是 C 也在$[−2^{63},2^{63}]$内，所以用 long long 存储 A 和 B ，如果 A+B 溢出，再根据A和B的符号就可以确定 A+B 和 C 的大小关系。
 
 
 
-这种方法是有问题的（比如$A+B=2^{63}$，如果$C=2^{63}$，那么$A+B=C$，而`long long`无法表示$2^{63}$，会溢出），但是数据比较弱。
-
-```cpp
-#include <cstdio>
-#include <iostream>
-
-using namespace std;
-
-int main() {
-    int t;
-    scanf("%d", &t);
-
-    long long a, b, c, sum;
-
-    for (int i = 1; i <= t; ++i) {
-        scanf("%lld%lld%lld", &a, &b, &c);
-
-        sum = a + b;
-
-        if (a > 0 && b > 0 && sum < 0) {
-            printf("Case #%d: true\n", i);
-        } else if (a < 0 && b < 0 && sum >= 0) {
-            printf("Case #%d: false\n", i);
-        } else if (sum > c) {
-            printf("Case #%d: true\n", i);
-        } else {
-            printf("Case #%d: false\n", i);
-        }
-    }
-}
-```
+这道题有点问题，因为 long long 不包括 $2^{63}$ 。

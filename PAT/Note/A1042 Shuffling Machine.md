@@ -27,34 +27,4 @@ S7 C11 C10 C12 S1 H7 H8 H9 D8 D9 S11 S12 S13 D10 D11 D12 S3 S4 S6 S10 H1 H2 C13 
 
 根据给定的洗牌方式和次数进行洗牌。
 
-
-
 三个数组，一个数组记录洗牌方式，另外两个数组完成洗牌过程，其中a1作为洗牌结果。洗牌时改变牌的标号，在输出时计算花色和牌号。
-```cpp
-#include <cstdio>
-
-int a1[60], a2[60], b[60];
-char mp[] = { 'S', 'H', 'C', 'D', 'J' };
-
-int main() {
-    int t;
-    scanf("%d", &t);
-
-    for (int i = 1; i <= 54; ++i)
-        a1[i] = i;
-    for (int i = 1; i <= 54; ++i)
-        scanf("%d", &b[i]);
-
-    while (t--) {
-        for (int i = 1; i <= 54; ++i)
-            a2[b[i]] = a1[i];
-        for (int i = 1; i <= 54; ++i)
-            a1[i] = a2[i];
-    }
-
-    for (int i = 1; i <= 54; ++i) {
-        printf("%c%d", mp[(a1[i] - 1) / 13], (a1[i] - 1) % 13 + 1);
-        if (i != 54) putchar(' ');
-    }
-}
-```
