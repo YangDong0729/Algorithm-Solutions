@@ -1,5 +1,6 @@
 #include <unordered_map>
 #include <iostream>
+#include <list>
 
 using namespace std;
 
@@ -15,38 +16,38 @@ private:
     list<node> cache;
     int capacity;
 
-    // ½«Ä³¸ö key ÌáÉıÎª×î½üÊ¹ÓÃ
+    // å°†æŸä¸ª key æå‡ä¸ºæœ€è¿‘ä½¿ç”¨
     void make_recent(int key) {
         auto x = map[key];
         node new_x = *x;
-        // ´ÓÁ´±íÖĞÉ¾³ı
+        // ä»é“¾è¡¨ä¸­åˆ é™¤
         cache.erase(x);
-        // ÖØĞÂ²åµ½¶ÓÍ·
+        // é‡æ–°æ’åˆ°é˜Ÿå¤´
         cache.push_front(new_x);
-        map[key] = cache.begin();  // ! ÕâÀïÒªÖØĞÂÓ³Éä
+        map[key] = cache.begin();  // ! è¿™é‡Œè¦é‡æ–°æ˜ å°„
     }
 
-    // Ìí¼Ó×î½üÊ¹ÓÃµÄÔªËØ
+    // æ·»åŠ æœ€è¿‘ä½¿ç”¨çš„å…ƒç´ 
     void add_recent(int key, int val) {
-        // Á´±íÍ·²¿¾ÍÊÇ×î½üÊ¹ÓÃµÄÔªËØ
+        // é“¾è¡¨å¤´éƒ¨å°±æ˜¯æœ€è¿‘ä½¿ç”¨çš„å…ƒç´ 
         cache.emplace_front(key, val);
-        // ÔÚ map ÖĞÌí¼ÓÓ³Éä
+        // åœ¨ map ä¸­æ·»åŠ æ˜ å°„
         map[key] = cache.begin();
     }
 
-    // É¾³ı key
+    // åˆ é™¤ key
     void delete_key(int key) {
         auto x = map[key];
         cache.erase(x);
         map.erase(key);
     }
 
-    // É¾³ı×î½ü×î¾ÃÎ´Ê¹ÓÃµÄÔªËØ
+    // åˆ é™¤æœ€è¿‘æœ€ä¹…æœªä½¿ç”¨çš„å…ƒç´ 
     void remove_least_recently_used() {
-        // Á´±íÎ²²¿µÄµÚÒ»¸öÔªËØ¾ÍÊÇ×î½ü×î¾ÃÎ´Ê¹ÓÃµÄ
+        // é“¾è¡¨å°¾éƒ¨çš„ç¬¬ä¸€ä¸ªå…ƒç´ å°±æ˜¯æœ€è¿‘æœ€ä¹…æœªä½¿ç”¨çš„
         node deleted = cache.back();
         cache.pop_back();
-        // ´Ó map ÖĞÉ¾³ı
+        // ä» map ä¸­åˆ é™¤
         map.erase(deleted.key);
     }
 public:
@@ -54,16 +55,16 @@ public:
 
     int get(int key) {
         if (!map.count(key)) return -1;
-        // ½«¸ÃÊı¾İÌáÉıÎª×î½üÊ¹ÓÃµÄ
+        // å°†è¯¥æ•°æ®æå‡ä¸ºæœ€è¿‘ä½¿ç”¨çš„
         make_recent(key);
         return map[key]->val;
     }
 
     void put(int key, int value) {
         if (map.count(key)) {
-            // É¾³ı¾ÉµÄÊı¾İ
+            // åˆ é™¤æ—§çš„æ•°æ®
             delete_key(key);
-            // ĞÂ²åÈëµÄÊı¾İÎª×î½üÊ¹ÓÃµÄÊı¾İ
+            // æ–°æ’å…¥çš„æ•°æ®ä¸ºæœ€è¿‘ä½¿ç”¨çš„æ•°æ®
             add_recent(key, value);
             return;
         }

@@ -1,34 +1,41 @@
+#include <string>
+#include <unordered_map>
+#include <iostream>
+
+using namespace std;
+
 class Solution {
 public:
     string minWindow(string s, string t) {
         unordered_map<char, int> need, window;
-        for (char c : t) need[c]++;
+        for (char c : t)
+            need[c]++;
 
-        int left = 0, right = 0;  // ×ó±ÕÓÒ¿ª£¬ÆğÊ¼³¤¶ÈÎª 0
+        int left = 0, right = 0; // å·¦é—­å³å¼€ï¼Œèµ·å§‹é•¿åº¦ä¸º 0
         int valid = 0;
-        // ¼ÇÂ¼×îĞ¡¸²¸Ç×Ó´®µÄÆğÊ¼Ë÷Òı¼°³¤¶È
+        // è®°å½•æœ€å°è¦†ç›–å­ä¸²çš„èµ·å§‹ç´¢å¼•åŠé•¿åº¦
         int start = 0, len = INT_MAX;
         while (right < s.size()) {
-            // c ÊÇ½«ÒÆÈë´°¿ÚµÄ×Ö·û
+            // c æ˜¯å°†ç§»å…¥çª—å£çš„å­—ç¬¦
             char c = s[right];
             right++;
-            // ½øĞĞ´°¿ÚÄÚÊı¾İµÄÒ»ÏµÁĞ¸üĞÂ
+            // è¿›è¡Œçª—å£å†…æ•°æ®çš„ä¸€ç³»åˆ—æ›´æ–°
             if (need.count(c)) {
                 window[c]++;
                 if (window[c] == need[c]) {
                     valid++;
                 }
-                // ÅĞ¶Ï×ó²à´°¿ÚÊÇ·ñÒªÊÕËõ
+                // åˆ¤æ–­å·¦ä¾§çª—å£æ˜¯å¦è¦æ”¶ç¼©
                 while (valid == need.size()) {
-                    // ÔÚÕâÀï¸üĞÂ×îĞ¡¸²¸Ç×Ó´®
+                    // åœ¨è¿™é‡Œæ›´æ–°æœ€å°è¦†ç›–å­ä¸²
                     if (right - left < len) {
                         start = left;
                         len = right - left;
                     }
-                    // d ÊÇ½«ÒÆ³ö´°¿ÚµÄ×Ö·û
+                    // d æ˜¯å°†ç§»å‡ºçª—å£çš„å­—ç¬¦
                     char d = s[left];
                     left++;
-                    // ½øĞĞ´°¿ÚÄÚÊı¾İµÄÒ»ÏµÁĞ¸üĞÂ
+                    // è¿›è¡Œçª—å£å†…æ•°æ®çš„ä¸€ç³»åˆ—æ›´æ–°
                     if (need.count(d)) {
                         if (window[d] == need[d]) {
                             valid--;
@@ -38,7 +45,7 @@ public:
                 }
             }
         }
-        // ·µ»Ø×îĞ¡¸²¸Ç×Ó´®
+        // è¿”å›æœ€å°è¦†ç›–å­ä¸²
         return len == INT_MAX ? "" : s.substr(start, len);
     }
 };
@@ -51,19 +58,35 @@ string stringToString(string input) {
         if (input[i] == '\\') {
             char nextChar = input[i + 1];
             switch (nextChar) {
-            case '\"': result.push_back('\"'); break;
-            case '/': result.push_back('/'); break;
-            case '\\': result.push_back('\\'); break;
-            case 'b': result.push_back('\b'); break;
-            case 'f': result.push_back('\f'); break;
-            case 'r': result.push_back('\r'); break;
-            case 'n': result.push_back('\n'); break;
-            case 't': result.push_back('\t'); break;
-            default: break;
+            case '\"':
+                result.push_back('\"');
+                break;
+            case '/':
+                result.push_back('/');
+                break;
+            case '\\':
+                result.push_back('\\');
+                break;
+            case 'b':
+                result.push_back('\b');
+                break;
+            case 'f':
+                result.push_back('\f');
+                break;
+            case 'r':
+                result.push_back('\r');
+                break;
+            case 'n':
+                result.push_back('\n');
+                break;
+            case 't':
+                result.push_back('\t');
+                break;
+            default:
+                break;
             }
             i++;
-        }
-        else {
+        } else {
             result.push_back(currentChar);
         }
     }

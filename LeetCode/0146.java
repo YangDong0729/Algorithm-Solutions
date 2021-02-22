@@ -1,40 +1,42 @@
+import java.util.LinkedHashMap;
 class LRUCache {
     int cap;
     LinkedHashMap<Integer, Integer> cache = new LinkedHashMap<>();
-    public LRUCache(int capacity) { 
+
+    public LRUCache(int capacity) {
         this.cap = capacity;
     }
-    
+
     public int get(int key) {
         if (!cache.containsKey(key)) {
             return -1;
         }
-        // ½« key ±äÎª×î½üÊ¹ÓÃ
+        // å°† key å˜ä¸ºæœ€è¿‘ä½¿ç”¨
         makeRecently(key);
         return cache.get(key);
     }
-    
+
     public void put(int key, int val) {
         if (cache.containsKey(key)) {
-            // ĞŞ¸Ä key µÄÖµ
+            // ä¿®æ”¹ key çš„å€¼
             cache.put(key, val);
-            // ½« key ±äÎª×î½üÊ¹ÓÃ
+            // å°† key å˜ä¸ºæœ€è¿‘ä½¿ç”¨
             makeRecently(key);
             return;
         }
-        
+
         if (cache.size() >= this.cap) {
-            // Á´±íÍ·²¿¾ÍÊÇ×î¾ÃÎ´Ê¹ÓÃµÄ key
+            // é“¾è¡¨å¤´éƒ¨å°±æ˜¯æœ€ä¹…æœªä½¿ç”¨çš„ key
             int oldestKey = cache.keySet().iterator().next();
             cache.remove(oldestKey);
         }
-        // ½«ĞÂµÄ key Ìí¼ÓÁ´±íÎ²²¿
+        // å°†æ–°çš„ key æ·»åŠ é“¾è¡¨å°¾éƒ¨
         cache.put(key, val);
     }
-    
+
     private void makeRecently(int key) {
         int val = cache.get(key);
-        // É¾³ı key£¬ÖØĞÂ²åÈëµ½¶ÓÎ²
+        // åˆ é™¤ keyï¼Œé‡æ–°æ’å…¥åˆ°é˜Ÿå°¾
         cache.remove(key);
         cache.put(key, val);
     }

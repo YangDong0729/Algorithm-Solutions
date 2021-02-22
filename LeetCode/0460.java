@@ -1,13 +1,16 @@
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+
 class LFUCache {
-    // key µ½ val µÄÓ³Éä£¬ÎÒÃÇºóÎÄ³ÆÎª KV ±í
+    // key åˆ° val çš„æ˜ å°„ï¼Œæˆ‘ä»¬åæ–‡ç§°ä¸º KV è¡¨
     HashMap<Integer, Integer> keyToVal;
-    // key µ½ freq µÄÓ³Éä£¬ÎÒÃÇºóÎÄ³ÆÎª KF ±í
+    // key åˆ° freq çš„æ˜ å°„ï¼Œæˆ‘ä»¬åæ–‡ç§°ä¸º KF è¡¨
     HashMap<Integer, Integer> keyToFreq;
-    // freq µ½ key ÁĞ±íµÄÓ³Éä£¬ÎÒÃÇºóÎÄ³ÆÎª FK ±í
+    // freq åˆ° key åˆ—è¡¨çš„æ˜ å°„ï¼Œæˆ‘ä»¬åæ–‡ç§°ä¸º FK è¡¨
     HashMap<Integer, LinkedHashSet<Integer>> freqToKeys;
-    // ¼ÇÂ¼×îĞ¡µÄÆµ´Î
+    // è®°å½•æœ€å°çš„é¢‘æ¬¡
     int minFreq;
-    // ¼ÇÂ¼ LFU »º´æµÄ×î´óÈİÁ¿
+    // è®°å½• LFU ç¼“å­˜çš„æœ€å¤§å®¹é‡
     int cap;
 
     public LFUCache(int capacity) {
@@ -18,76 +21,76 @@ class LFUCache {
         this.minFreq = 0;
     }
 
-
     public int get(int key) {
         if (!keyToVal.containsKey(key)) {
             return -1;
         }
-        // Ôö¼Ó key ¶ÔÓ¦µÄ freq
+        // å¢åŠ  key å¯¹åº”çš„ freq
         increaseFreq(key);
         return keyToVal.get(key);
     }
 
     public void put(int key, int val) {
-        if (this.cap <= 0) return;
+        if (this.cap <= 0)
+            return;
 
-        /* Èô key ÒÑ´æÔÚ£¬ĞŞ¸Ä¶ÔÓ¦µÄ val ¼´¿É */
+        /* è‹¥ key å·²å­˜åœ¨ï¼Œä¿®æ”¹å¯¹åº”çš„ val å³å¯ */
         if (keyToVal.containsKey(key)) {
             keyToVal.put(key, val);
-            // key ¶ÔÓ¦µÄ freq ¼ÓÒ»
+            // key å¯¹åº”çš„ freq åŠ ä¸€
             increaseFreq(key);
             return;
         }
 
-        /* key ²»´æÔÚ£¬ĞèÒª²åÈë */
-        /* ÈİÁ¿ÒÑÂúµÄ»°ĞèÒªÌÔÌ­Ò»¸ö freq ×îĞ¡µÄ key */
+        /* key ä¸å­˜åœ¨ï¼Œéœ€è¦æ’å…¥ */
+        /* å®¹é‡å·²æ»¡çš„è¯éœ€è¦æ·˜æ±°ä¸€ä¸ª freq æœ€å°çš„ key */
         if (this.cap <= keyToVal.size()) {
             removeMinFreqKey();
         }
 
-        /* ²åÈë key ºÍ val£¬¶ÔÓ¦µÄ freq Îª 1 */
-        // ²åÈë KV ±í
+        /* æ’å…¥ key å’Œ valï¼Œå¯¹åº”çš„ freq ä¸º 1 */
+        // æ’å…¥ KV è¡¨
         keyToVal.put(key, val);
-        // ²åÈë KF ±í
+        // æ’å…¥ KF è¡¨
         keyToFreq.put(key, 1);
-        // ²åÈë FK ±í
+        // æ’å…¥ FK è¡¨
         freqToKeys.putIfAbsent(1, new LinkedHashSet<>());
         freqToKeys.get(1).add(key);
-        // ²åÈëĞÂ key ºó×îĞ¡µÄ freq ¿Ï¶¨ÊÇ 1
+        // æ’å…¥æ–° key åæœ€å°çš„ freq è‚¯å®šæ˜¯ 1
         this.minFreq = 1;
     }
 
     private void removeMinFreqKey() {
-        // freq ×îĞ¡µÄ key ÁĞ±í
+        // freq æœ€å°çš„ key åˆ—è¡¨
         LinkedHashSet<Integer> keyList = freqToKeys.get(this.minFreq);
-        // ÆäÖĞ×îÏÈ±»²åÈëµÄÄÇ¸ö key ¾ÍÊÇ¸Ã±»ÌÔÌ­µÄ key
+        // å…¶ä¸­æœ€å…ˆè¢«æ’å…¥çš„é‚£ä¸ª key å°±æ˜¯è¯¥è¢«æ·˜æ±°çš„ key
         int deletedKey = keyList.iterator().next();
-        /* ¸üĞÂ FK ±í */
+        /* æ›´æ–° FK è¡¨ */
         keyList.remove(deletedKey);
         if (keyList.isEmpty()) {
             freqToKeys.remove(this.minFreq);
-            // ÕâÀïĞèÒª¸üĞÂ minFreq Âğ£¿
+            // è¿™é‡Œéœ€è¦æ›´æ–° minFreq å—ï¼Ÿ
         }
-        /* ¸üĞÂ KV ±í */
+        /* æ›´æ–° KV è¡¨ */
         keyToVal.remove(deletedKey);
-        /* ¸üĞÂ KF ±í */
+        /* æ›´æ–° KF è¡¨ */
         keyToFreq.remove(deletedKey);
     }
 
     private void increaseFreq(int key) {
         int freq = keyToFreq.get(key);
-        /* ¸üĞÂ KF ±í */
+        /* æ›´æ–° KF è¡¨ */
         keyToFreq.put(key, freq + 1);
-        /* ¸üĞÂ FK ±í */
-        // ½« key ´Ó freq ¶ÔÓ¦µÄÁĞ±íÖĞÉ¾³ı
+        /* æ›´æ–° FK è¡¨ */
+        // å°† key ä» freq å¯¹åº”çš„åˆ—è¡¨ä¸­åˆ é™¤
         freqToKeys.get(freq).remove(key);
-        // ½« key ¼ÓÈë freq + 1 ¶ÔÓ¦µÄÁĞ±íÖĞ
+        // å°† key åŠ å…¥ freq + 1 å¯¹åº”çš„åˆ—è¡¨ä¸­
         freqToKeys.putIfAbsent(freq + 1, new LinkedHashSet<>());
         freqToKeys.get(freq + 1).add(key);
-        // Èç¹û freq ¶ÔÓ¦µÄÁĞ±í¿ÕÁË£¬ÒÆ³ıÕâ¸ö freq
+        // å¦‚æœ freq å¯¹åº”çš„åˆ—è¡¨ç©ºäº†ï¼Œç§»é™¤è¿™ä¸ª freq
         if (freqToKeys.get(freq).isEmpty()) {
             freqToKeys.remove(freq);
-            // Èç¹ûÕâ¸ö freq Ç¡ºÃÊÇ minFreq£¬¸üĞÂ minFreq
+            // å¦‚æœè¿™ä¸ª freq æ°å¥½æ˜¯ minFreqï¼Œæ›´æ–° minFreq
             if (freq == this.minFreq) {
                 this.minFreq++;
             }
@@ -96,8 +99,6 @@ class LFUCache {
 }
 
 /**
- * Your LFUCache object will be instantiated and called as such:
- * LFUCache obj = new LFUCache(capacity);
- * int param_1 = obj.get(key);
- * obj.put(key,value);
+ * Your LFUCache object will be instantiated and called as such: LFUCache obj =
+ * new LFUCache(capacity); int param_1 = obj.get(key); obj.put(key,value);
  */

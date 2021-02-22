@@ -364,3 +364,5 @@ _deps
 
 out/
 build/
+.vscode
+.DS_Store

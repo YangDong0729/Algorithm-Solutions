@@ -5,8 +5,8 @@ int main() {
 	scanf("%d", &n);
 	while (n > 0) {
 		n--;
-		cnt++;  // ¼ÆÊı 
-		scanf("%lld %lld %lld", &a, &b, &c);  // long long ¸ñÊ½Îª %lld 
+		cnt++;  // è®¡æ•° 
+		scanf("%lld %lld %lld", &a, &b, &c);  // long long æ ¼å¼ä¸º %lld 
 		if (a + b > c) printf("Case #%d: true\n", cnt);
 		else printf("Case #%d: false\n", cnt);
 	}

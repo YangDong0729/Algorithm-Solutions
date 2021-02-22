@@ -1,14 +1,14 @@
-#include <unordered_map>
 #include <cctype>
 #include <iostream>
-#include <sstream>
 #include <queue>
+#include <sstream>
+#include <unordered_map>
 
 using namespace std;
 
 /**
  * Definition for a binary tree node.
- */ 
+ */
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -18,34 +18,35 @@ struct TreeNode {
 
 class Solution {
 public:
-    unordered_map<TreeNode*, int> memo;
-    int rob(TreeNode* root) {
-        if (root == nullptr) return 0;
-        if (memo.count(root)) return memo[root];
-        // ͵
-        int steal = root->val
-            + (root->left ? rob(root->left->left) + rob(root->left->right) : 0)
-            + (root->right ? rob(root->right->left) + rob(root->right->right) : 0);
-        // ��͵
+    unordered_map<TreeNode *, int> memo;
+    int rob(TreeNode *root) {
+        if (root == nullptr)
+            return 0;
+        if (memo.count(root))
+            return memo[root];
+        // 偷
+        int steal = root->val + (root->left ? rob(root->left->left) + rob(root->left->right) : 0) + (root->right ? rob(root->right->left) + rob(root->right->right) : 0);
+        // 不偷
         int no_steal = rob(root->left) + rob(root->right);
         memo[root] = max(steal, no_steal);
         return memo[root];
     }
 };
 
-void trimLeftTrailingSpaces(string& input) {
+void trimLeftTrailingSpaces(string &input) {
     input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch) {
-        return !isspace(ch);
-        }));
+                    return !isspace(ch);
+                }));
 }
 
-void trimRightTrailingSpaces(string& input) {
+void trimRightTrailingSpaces(string &input) {
     input.erase(find_if(input.rbegin(), input.rend(), [](int ch) {
-        return !isspace(ch);
-        }).base(), input.end());
+                    return !isspace(ch);
+                }).base(),
+                input.end());
 }
 
-TreeNode* stringToTreeNode(string input) {
+TreeNode *stringToTreeNode(string input) {
     trimLeftTrailingSpaces(input);
     trimRightTrailingSpaces(input);
     input = input.substr(1, input.length() - 2);
@@ -58,12 +59,12 @@ TreeNode* stringToTreeNode(string input) {
     ss.str(input);
 
     getline(ss, item, ',');
-    TreeNode* root = new TreeNode(stoi(item));
-    queue<TreeNode*> nodeQueue;
+    TreeNode *root = new TreeNode(stoi(item));
+    queue<TreeNode *> nodeQueue;
     nodeQueue.push(root);
 
     while (true) {
-        TreeNode* node = nodeQueue.front();
+        TreeNode *node = nodeQueue.front();
         nodeQueue.pop();
 
         if (!getline(ss, item, ',')) {
@@ -94,7 +95,7 @@ TreeNode* stringToTreeNode(string input) {
 int main() {
     string line;
     while (getline(cin, line)) {
-        TreeNode* root = stringToTreeNode(line);
+        TreeNode *root = stringToTreeNode(line);
 
         int ret = Solution().rob(root);
 

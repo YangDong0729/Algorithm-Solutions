@@ -13,24 +13,24 @@ class LFUCache {
 private:
     int capacity;
     int min_freq;
-    // key -> value / freq ´æ´¢Êµ¼ÊµÄÖµ
+    // key -> value / freq å­˜å‚¨å®é™…çš„å€¼
     unordered_map<int, node> cache;
-    // ÔÚÈ·¶¨µÄÆµ´ÎÏÂÊÇ LRU
+    // åœ¨ç¡®å®šçš„é¢‘æ¬¡ä¸‹æ˜¯ LRU
     // freq -> keys
     unordered_map<int, list<int>> freq2keys;
-    // key -> ÔÚ list ÖĞµÄÎ»ÖÃ
+    // key -> åœ¨ list ä¸­çš„ä½ç½®
     unordered_map<int, list<int>::iterator> key2iter;
 
-    // ¸ø key µÄÆµ´Î + 1
+    // ç»™ key çš„é¢‘æ¬¡ + 1
     void increase_freq(int key) {
         int freq = cache[key].freq++;
         auto iter = key2iter[key];
-        // ´ÓÔ­À´µÄÆµ´ÎÖĞÉ¾µô
+        // ä»åŸæ¥çš„é¢‘æ¬¡ä¸­åˆ æ‰
         freq2keys[freq].erase(iter);
-        // Ìí¼Óµ½ĞÂµÄÆµ´ÎÖĞ
+        // æ·»åŠ åˆ°æ–°çš„é¢‘æ¬¡ä¸­
         freq2keys[freq + 1].push_front(key);
-        key2iter[key] = freq2keys[freq + 1].begin();  // ÖØĞÂÓ³Éä
-        // ¸üĞÂ min_freq
+        key2iter[key] = freq2keys[freq + 1].begin();  // é‡æ–°æ˜ å°„
+        // æ›´æ–° min_freq
         if (freq2keys[freq].empty()) {
             freq2keys.erase(freq);
             if (freq == min_freq) ++min_freq;
@@ -42,8 +42,8 @@ private:
         freq2keys[min_freq].pop_back();
         key2iter.erase(key);
         cache.erase(key);
-        if (freq2keys[min_freq].empty()) 
-            freq2keys.erase(min_freq);  // ÕâÀïµÄ min_freq ²»ÕıÈ·£¬µ«Ã»¹ØÏµ£¬ÔÚ add ÖĞ»á±»ÖÃ 1
+        if (freq2keys[min_freq].empty())
+            freq2keys.erase(min_freq);  // è¿™é‡Œçš„ min_freq ä¸æ­£ç¡®ï¼Œä½†æ²¡å…³ç³»ï¼Œåœ¨ add ä¸­ä¼šè¢«ç½® 1
     }
 
     void add(int key, int val) {
@@ -52,9 +52,9 @@ private:
         key2iter[key] = freq2keys[1].begin();
         min_freq = 1;
     }
-    
+
 public:
-    LFUCache(int capacity):capacity(capacity), min_freq(0) {}
+    LFUCache(int capacity) :capacity(capacity), min_freq(0) {}
 
     int get(int key) {
         if (!cache.count(key)) return -1;
@@ -63,7 +63,7 @@ public:
     }
 
     void put(int key, int value) {
-        if (capacity == 0) return; // ! ×¢ÒâÈİÁ¿Îª 0 µÄÇé¿ö
+        if (capacity == 0) return; // ! æ³¨æ„å®¹é‡ä¸º 0 çš„æƒ…å†µ
         if (!cache.count(key)) {
             if (cache.size() == capacity) {
                 remove_least_frequently_used();
@@ -71,9 +71,9 @@ public:
             add(key, value);
         }
         else {
-            cache[key].value = value;  // ¸üĞÂ value
+            cache[key].value = value;  // æ›´æ–° value
             increase_freq(key);
-        }    
+        }
     }
 };
 
@@ -85,23 +85,23 @@ public:
  */
 
 int main() {
-    // cnt(x) = ¼ü x µÄÊ¹ÓÃ¼ÆÊı
-    // cache=[] ½«ÏÔÊ¾×îºóÒ»´ÎÊ¹ÓÃµÄË³Ğò£¨×î×ó±ßµÄÔªËØÊÇ×î½üµÄ£©
+    // cnt(x) = é”® x çš„ä½¿ç”¨è®¡æ•°
+    // cache=[] å°†æ˜¾ç¤ºæœ€åä¸€æ¬¡ä½¿ç”¨çš„é¡ºåºï¼ˆæœ€å·¦è¾¹çš„å…ƒç´ æ˜¯æœ€è¿‘çš„ï¼‰
     LFUCache lFUCache(2);
     lFUCache.put(1, 1);                   // cache=[1,_], cnt(1)=1
     lFUCache.put(2, 2);                   // cache=[2,1], cnt(2)=1, cnt(1)=1
-    cout << lFUCache.get(1) << endl;      // ·µ»Ø 1
+    cout << lFUCache.get(1) << endl;      // è¿”å› 1
                                           // cache=[1,2], cnt(2)=1, cnt(1)=2
-    lFUCache.put(3, 3);                   // È¥³ı¼ü 2 £¬ÒòÎª cnt(2)=1 £¬Ê¹ÓÃ¼ÆÊı×îĞ¡
+    lFUCache.put(3, 3);                   // å»é™¤é”® 2 ï¼Œå› ä¸º cnt(2)=1 ï¼Œä½¿ç”¨è®¡æ•°æœ€å°
                                           // cache=[3,1], cnt(3)=1, cnt(1)=2
-    cout << lFUCache.get(2) << endl;      // ·µ»Ø -1£¨Î´ÕÒµ½£©
-    cout << lFUCache.get(3) << endl;      // ·µ»Ø 3
+    cout << lFUCache.get(2) << endl;      // è¿”å› -1ï¼ˆæœªæ‰¾åˆ°ï¼‰
+    cout << lFUCache.get(3) << endl;      // è¿”å› 3
                                           // cache=[3,1], cnt(3)=2, cnt(1)=2
-    lFUCache.put(4, 4);                   // È¥³ı¼ü 1 £¬1 ºÍ 3 µÄ cnt ÏàÍ¬£¬µ« 1 ×î¾ÃÎ´Ê¹ÓÃ
+    lFUCache.put(4, 4);                   // å»é™¤é”® 1 ï¼Œ1 å’Œ 3 çš„ cnt ç›¸åŒï¼Œä½† 1 æœ€ä¹…æœªä½¿ç”¨
                                           // cache=[4,3], cnt(4)=1, cnt(3)=2
-    cout << lFUCache.get(1) << endl;      // ·µ»Ø -1£¨Î´ÕÒµ½£©
-    cout << lFUCache.get(3) << endl;      // ·µ»Ø 3
+    cout << lFUCache.get(1) << endl;      // è¿”å› -1ï¼ˆæœªæ‰¾åˆ°ï¼‰
+    cout << lFUCache.get(3) << endl;      // è¿”å› 3
                                           // cache=[3,4], cnt(4)=1, cnt(3)=3
-    cout << lFUCache.get(4) << endl;      // ·µ»Ø 4
+    cout << lFUCache.get(4) << endl;      // è¿”å› 4
                                           // cache=[3,4], cnt(4)=2, cnt(3)=3
 }

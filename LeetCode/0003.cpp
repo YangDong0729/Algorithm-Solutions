@@ -8,18 +8,18 @@ using namespace std;
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        auto map = vector<int>(256, -1);  // ×Ö·û->×îºó³öÏÖµÄÎ»ÖÃ
+        auto map = vector<int>(256, -1);  // å­—ç¬¦->æœ€åå‡ºç°çš„ä½ç½®
 
         int ans = 0;
-        int start = 0;  // µ±Ç°×Ó´®µÄ¿ªÊ¼Î»ÖÃ
+        int start = 0;  // å½“å‰å­ä¸²çš„å¼€å§‹ä½ç½®
 
         for (int i = 0; i < s.length(); ++i) {
 
-            if (map[s[i]] >= start) {  // µ±Ç°×Ö·ûÓëÖ®Ç°×Ö·ûÖØ¸´
-                start = map[s[i]] + 1;  // ´ÓÖØ¸´µÄÏÂÒ»¸ö¿ªÊ¼
+            if (map[s[i]] >= start) {  // å½“å‰å­—ç¬¦ä¸ä¹‹å‰å­—ç¬¦é‡å¤
+                start = map[s[i]] + 1;  // ä»é‡å¤çš„ä¸‹ä¸€ä¸ªå¼€å§‹
             }
 
-            // µ±Ç°µÄÎŞÖØ¸´×Ö·û´®£º[start, i]
+            // å½“å‰çš„æ— é‡å¤å­—ç¬¦ä¸²ï¼š[start, i]
             ans = max(ans, i - start + 1);
             map[s[i]] = i;
 

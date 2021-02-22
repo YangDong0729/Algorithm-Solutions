@@ -8,9 +8,9 @@ class Solution {
 public:
     int rob(vector<int>& nums) {
         int n = nums.size();
-        // ¼ÇÂ¼ dp[i+1] ºÍ dp[i+2]
+        // è®°å½• dp[i+1] å’Œ dp[i+2]
         int dp_i_1 = 0, dp_i_2 = 0;
-        // ¼ÇÂ¼ dp[i]
+        // è®°å½• dp[i]
         int dp_i = 0;
         for (int i = n - 1; i >= 0; i--) {
             dp_i = max(dp_i_1, nums[i] + dp_i_2);
