@@ -1,12 +1,12 @@
-#include <vector>
 #include <iostream>
 #include <sstream>
+#include <vector>
 
 using namespace std;
 
 class Solution {
 public:
-    int rob(vector<int>& nums) {
+    int rob(vector<int> &nums) {
         int n = nums.size();
         // 记录 dp[i+1] 和 dp[i+2]
         int dp_i_1 = 0, dp_i_2 = 0;
@@ -21,16 +21,17 @@ public:
     }
 };
 
-void trimLeftTrailingSpaces(string& input) {
+void trimLeftTrailingSpaces(string &input) {
     input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch) {
-        return !isspace(ch);
-        }));
+                    return !isspace(ch);
+                }));
 }
 
-void trimRightTrailingSpaces(string& input) {
+void trimRightTrailingSpaces(string &input) {
     input.erase(find_if(input.rbegin(), input.rend(), [](int ch) {
-        return !isspace(ch);
-        }).base(), input.end());
+                    return !isspace(ch);
+                }).base(),
+                input.end());
 }
 
 vector<int> stringToIntegerVector(string input) {

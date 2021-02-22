@@ -1,13 +1,13 @@
-#include <unordered_map>
 #include <iostream>
 #include <list>
+#include <unordered_map>
 
 using namespace std;
 
 class node {
 public:
     int key, val;
-    node(int k, int v) :key(k), val(v) {}
+    node(int k, int v) : key(k), val(v) {}
 };
 
 class LRUCache {
@@ -24,7 +24,7 @@ private:
         cache.erase(x);
         // 重新插到队头
         cache.push_front(new_x);
-        map[key] = cache.begin();  // ! 这里要重新映射
+        map[key] = cache.begin(); // ! 这里要重新映射
     }
 
     // 添加最近使用的元素
@@ -50,11 +50,13 @@ private:
         // 从 map 中删除
         map.erase(deleted.key);
     }
+
 public:
-    LRUCache(int capacity) :capacity(capacity), map(), cache() {}
+    LRUCache(int capacity) : capacity(capacity), map(), cache() {}
 
     int get(int key) {
-        if (!map.count(key)) return -1;
+        if (!map.count(key))
+            return -1;
         // 将该数据提升为最近使用的
         make_recent(key);
         return map[key]->val;
