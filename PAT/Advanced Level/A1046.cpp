@@ -1,5 +1,5 @@
+﻿#include <cstdio>
 #include <iostream>
-#include <cstdio>
 
 using namespace std;
 
@@ -23,12 +23,14 @@ int main() {
     while (m--) {
         int b1, b2;
         scanf("%d%d", &b1, &b2);
-        if (b2 < b1) swap(b1, b2);
+        if (b2 < b1)
+            swap(b1, b2);
 
         int s1 = dis[b2] - dis[b1];
         int s2 = sum - s1;
         printf("%d", min(s1, s2));
 
-        if (m) putchar('\n');
+        if (m)
+            putchar('\n');
     }
 }

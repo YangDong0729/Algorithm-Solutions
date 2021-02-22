@@ -1,4 +1,4 @@
-#include <cstdio>
+﻿#include <cstdio>
 
 int a1[60], a2[60], b[60];
 char mp[] = {'S', 'H', 'C', 'D', 'J'};

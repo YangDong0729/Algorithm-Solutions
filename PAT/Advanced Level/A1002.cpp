@@ -1,4 +1,4 @@
-#include <cstdio>
+﻿#include <cstdio>
 
 constexpr auto SIZE = 10005;
 double a[SIZE];
@@ -17,10 +17,12 @@ int main() {
 
     int cnt = 0;
     for (int i = 0; i < SIZE; ++i)
-        if (a[i] != 0) ++cnt;
+        if (a[i] != 0)
+            ++cnt;
     printf("%d", cnt);
 
     if (cnt)
         for (int i = SIZE - 1; i >= 0; --i)
-            if (a[i] != 0) printf(" %d %.1f", i, a[i]);
+            if (a[i] != 0)
+                printf(" %d %.1f", i, a[i]);
 }

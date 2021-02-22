@@ -1,4 +1,4 @@
-#include <cstdio>
+﻿#include <cstdio>
 
 using namespace std;
 
@@ -14,7 +14,8 @@ int main() {
             double cof;
             scanf("%d %lf", &exp, &cof);
 
-            if (i == 0) arr[exp] = cof;
+            if (i == 0)
+                arr[exp] = cof;
             else
                 for (int k = 0; k <= 1000; ++k)
                     res[k + exp] += cof * arr[k];
@@ -23,10 +24,12 @@ int main() {
 
     int cnt = 0;
     for (int i = 0; i < SIZE; ++i)
-        if (res[i] != 0) ++cnt;
+        if (res[i] != 0)
+            ++cnt;
     printf("%d", cnt);
 
     if (cnt)
         for (int i = SIZE - 1; i >= 0; --i)
-            if (res[i] != 0) printf(" %d %.1f", i, res[i]);
+            if (res[i] != 0)
+                printf(" %d %.1f", i, res[i]);
 }
