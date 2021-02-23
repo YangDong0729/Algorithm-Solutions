@@ -7,4 +7,3 @@ set(CMAKE_CXX_STANDARD 20)
 project("Algorithm Solutions")
 
 add_subdirectory ("PAT")
-add_subdirectory ("LeetCode")

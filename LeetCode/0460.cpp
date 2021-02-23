@@ -1,6 +1,5 @@
 #include <unordered_map>
 #include <list>
-#include <iostream>
 
 using namespace std;
 
@@ -83,25 +82,3 @@ public:
  * int param_1 = obj->get(key);
  * obj->put(key,value);
  */
-
-int main() {
-    // cnt(x) = 键 x 的使用计数
-    // cache=[] 将显示最后一次使用的顺序（最左边的元素是最近的）
-    LFUCache lFUCache(2);
-    lFUCache.put(1, 1);                   // cache=[1,_], cnt(1)=1
-    lFUCache.put(2, 2);                   // cache=[2,1], cnt(2)=1, cnt(1)=1
-    cout << lFUCache.get(1) << endl;      // 返回 1
-                                          // cache=[1,2], cnt(2)=1, cnt(1)=2
-    lFUCache.put(3, 3);                   // 去除键 2 ，因为 cnt(2)=1 ，使用计数最小
-                                          // cache=[3,1], cnt(3)=1, cnt(1)=2
-    cout << lFUCache.get(2) << endl;      // 返回 -1（未找到）
-    cout << lFUCache.get(3) << endl;      // 返回 3
-                                          // cache=[3,1], cnt(3)=2, cnt(1)=2
-    lFUCache.put(4, 4);                   // 去除键 1 ，1 和 3 的 cnt 相同，但 1 最久未使用
-                                          // cache=[4,3], cnt(4)=1, cnt(3)=2
-    cout << lFUCache.get(1) << endl;      // 返回 -1（未找到）
-    cout << lFUCache.get(3) << endl;      // 返回 3
-                                          // cache=[3,4], cnt(4)=1, cnt(3)=3
-    cout << lFUCache.get(4) << endl;      // 返回 4
-                                          // cache=[3,4], cnt(4)=2, cnt(3)=3
-}

@@ -1,5 +1,4 @@
-﻿#include <iostream>
-#include <list>
+﻿#include <list>
 #include <unordered_map>
 
 using namespace std;
@@ -85,16 +84,3 @@ public:
  * int param_1 = obj->get(key);
  * obj->put(key,value);
  */
-
-int main() {
-    auto lruc = LRUCache(2);
-    lruc.put(1, 1);
-    lruc.put(2, 2);
-    cout << lruc.get(1) << endl;
-    lruc.put(3, 3);
-    cout << lruc.get(2) << endl;
-    lruc.put(4, 4);
-    cout << lruc.get(1) << endl;
-    cout << lruc.get(3) << endl;
-    cout << lruc.get(4) << endl;
-}
