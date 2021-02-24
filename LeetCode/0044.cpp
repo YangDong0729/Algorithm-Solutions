@@ -1,10 +1,4 @@
-﻿#include <iostream>
-#include <string>
-#include <vector>
-
-using namespace std;
-
-class Solution {
+﻿class Solution {
 public:
     bool isMatch(string s, string p) {
         int sl = 0, slen = int(s.length());

@@ -1,15 +1,4 @@
-﻿#include <list>
-#include <unordered_map>
-
-using namespace std;
-
-class node {
-public:
-    int key, val;
-    node(int k, int v) : key(k), val(v) {}
-};
-
-class LRUCache {
+﻿class LRUCache {
 private:
     unordered_map<int, list<node>::iterator> map;
     list<node> cache;

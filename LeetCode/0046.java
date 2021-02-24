@@ -1,7 +1,4 @@
-﻿import java.util.LinkedList;
-import java.util.List;
-
-class Solution {
+﻿class Solution {
     List<List<Integer>> res = new LinkedList<>();
 
     /* 主函数，输入一组不重复的数字，返回它们的全排列 */

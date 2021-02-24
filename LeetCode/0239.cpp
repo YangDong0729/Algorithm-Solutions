@@ -1,9 +1,4 @@
-﻿#include <vector>
-#include <deque>
-
-using namespace std;
-
-class MonotonicQueue {
+﻿class MonotonicQueue {
 private:
     deque<int> q;
 

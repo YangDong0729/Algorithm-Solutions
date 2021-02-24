@@ -1,4 +1,3 @@
-import java.util.LinkedHashMap;
 class LRUCache {
     int cap;
     LinkedHashMap<Integer, Integer> cache = new LinkedHashMap<>();

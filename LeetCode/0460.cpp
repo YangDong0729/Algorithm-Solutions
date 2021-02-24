@@ -1,13 +1,3 @@
-#include <unordered_map>
-#include <list>
-
-using namespace std;
-
-class node {
-public:
-    int value, freq;
-};
-
 class LFUCache {
 private:
     int capacity;

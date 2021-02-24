@@ -1,9 +1,4 @@
-﻿#include <stack>
-#include <vector>
-
-using namespace std;
-
-class Solution {
+﻿class Solution {
 public:
     int trap(vector<int> &height) {
         int sum = 0;

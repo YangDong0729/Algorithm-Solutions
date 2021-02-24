@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-
 class LFUCache {
     // key 到 val 的映射，我们后文称为 KV 表
     HashMap<Integer, Integer> keyToVal;
