@@ -1,4 +1,4 @@
-﻿#include <cstdio>
+#include <cstdio>
 
 int main() {
     int n, step = 0;
