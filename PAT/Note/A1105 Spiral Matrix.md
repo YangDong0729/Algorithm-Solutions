@@ -1,7 +1,3 @@
-https://pintia.cn/problem-sets/994805342720868352/problems/994805363117768704
-
-> 千名教师建设，万道高质量题目，百万用户拼题的程序设计实验辅助教学平台
-
 # 题目详情
 This time your job is to ==fill a sequence of $N$ positive integers into a **spiral matrix** in non-increasing order==. ==A spiral matrix is filled in from the first element at the upper-left corner, then move in a clockwise spiral.== The matrix has $m$ rows and $n$ columns, where $m$ and $n$ satisfy the following: $m\times n$ must be equal to $N$; $m\ge n$; and $m-n$ is the minimum of all the possible values.
 
