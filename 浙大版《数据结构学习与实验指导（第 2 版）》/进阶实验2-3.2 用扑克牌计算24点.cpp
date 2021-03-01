@@ -1,6 +1,6 @@
 ﻿/**
  * @file 进阶实验2-3.2 用扑克牌计算24点.cpp
- * @author your name (you@domain.com)
+ * @author 杨东
  * @brief 
  * 1. 生成一个数字排列
  * 2. 生成一个运算符排列
