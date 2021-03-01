@@ -6,4 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 project("Algorithm Solutions")
 
-add_subdirectory ("PAT")
+add_subdirectory("PAT")
+add_subdirectory("浙大版《数据结构（第 2 版）》/编程题")
+add_subdirectory("浙大版《数据结构学习与实验指导（第 2 版）》/编程题")
