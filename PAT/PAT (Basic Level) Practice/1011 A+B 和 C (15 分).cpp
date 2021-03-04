@@ -1,4 +1,5 @@
 ﻿#include <cstdio>
+
 int main() {
     int n, cnt = 0;
     long long a, b, c;
