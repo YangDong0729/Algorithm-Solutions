@@ -1,21 +1,20 @@
 ﻿#include <cstdio>
-#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
-int dis[100005];
-
 int main() {
-    dis[1] = 0;
+    const int M = 100005;
+    int dist[M], pre_sum[M] = {};
 
-    int t, n, sum = 0;
+    int n, sum;
     scanf("%d", &n);
 
     for (int i = 1; i <= n; ++i) {
-        scanf("%d", &t);
-        sum += t;
-        dis[i + 1] = dis[i] + t;
+        scanf("%d", &dist[i]);
+        pre_sum[i + 1] = pre_sum[i] + dist[i];
     }
+    sum = pre_sum[n + 1];
 
     int m;
     scanf("%d", &m);
@@ -26,7 +25,7 @@ int main() {
         if (b2 < b1)
             swap(b1, b2);
 
-        int s1 = dis[b2] - dis[b1];
+        int s1 = pre_sum[b2] - pre_sum[b1];
         int s2 = sum - s1;
         printf("%d", min(s1, s2));
 

@@ -1,8 +1,9 @@
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 3.10)
 
-file( GLOB APP_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/ *.cpp )
+file( GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/ *.cpp )
  
-foreach( sourcefile IN LISTS APP_SOURCES )
-    string( REPLACE ".cpp" "" program ${sourcefile} )
-    add_executable( ${program} ${sourcefile} )
-endforeach( sourcefile )
+foreach( SOURCE IN LISTS SOURCES )
+    string( SUBSTRING ${SOURCE} 0 4 PROGRAM )
+    string( PREPEND PROGRAM "A")
+    add_executable( ${PROGRAM} ${SOURCE} )
+endforeach( SOURCE )

@@ -11,13 +11,16 @@ int main() {
 
         sum = a + b;
 
-        if (a > 0 && b > 0 && sum < 0) { // 正溢出
+        if (a > 0 && b > 0 && sum < 0) {
             printf("Case #%d: true\n", i);
-        } else if (a < 0 && b < 0 && sum >= 0) { // 负溢出
+        }
+        else if (a < 0 && b < 0 && sum >= 0) {
             printf("Case #%d: false\n", i);
-        } else if (sum > c) {
+        }
+        else if (sum > c) {
             printf("Case #%d: true\n", i);
-        } else {
+        }
+        else {
             printf("Case #%d: false\n", i);
         }
     }
