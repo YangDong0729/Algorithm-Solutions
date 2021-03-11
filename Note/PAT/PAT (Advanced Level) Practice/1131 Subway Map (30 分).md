@@ -98,10 +98,10 @@ void dijkstra(int start) {
 		pq.pop();
 		visit[u] = true;
 
-		if (dist[u] != -1 && dist[u] < u_dist)
+		if (dist[u] != -1 and dist[u] < u_dist)
 			continue; // dist[u] != -1
 		for (auto& v : graph[u]) {
-			if (!visit[v] && (dist[v] == -1 || dist[v] > u_dist + 1)) {
+			if (!visit[v] and (dist[v] == -1 or dist[v] > u_dist + 1)) {
 				dist[v] = u_dist + 1;
 				pq.push({ dist[v], v });
 				pre[v].clear();

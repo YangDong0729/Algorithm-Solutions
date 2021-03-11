@@ -29,7 +29,7 @@ int main() {
         bool insert = false;
         for (int j = 0; j < m_size; ++j) {
             int pos = (x + j * j) % m_size;
-            if (hash_table[pos] == 0) {  // 因为输入的都是正数
+            if (hash_table[pos] == 0) { // 因为输入的都是正数
                 hash_table[pos] = x;
                 insert = true;
                 break;
@@ -44,7 +44,7 @@ int main() {
         int j = 0;
         for (; j < m_size; ++j) {
             int pos = (x + j * j) % m_size;
-            if (hash_table[pos] == 0 || hash_table[pos] == x)
+            if (hash_table[pos] == 0 or hash_table[pos] == x)
                 break;
         }
         ans += j + 1;

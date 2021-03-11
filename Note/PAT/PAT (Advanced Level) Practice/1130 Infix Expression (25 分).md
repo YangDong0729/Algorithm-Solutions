@@ -11,8 +11,8 @@ Each input file contains one test case. For each case, the first line gives ==a 
 where `data` is a string of no more than 10 characters, `left_child` and `right_child` are the indices of this node's left and right children, respectively. The nodes are indexed from 1 to N. The NULL link is represented by $-1$. The figures 1 and 2 correspond to the samples 1 and 2, respectively.
 
 | ![infix1.JPG](https://images.ptausercontent.com/4d1c4a98-33cc-45ff-820f-c548845681ba.JPG) | ![infix2.JPG](https://images.ptausercontent.com/b5a3c36e-91ad-494a-8853-b46e1e8b60cc.JPG) |
-| :----------------------------------------------------------: | :----------------------------------------------------------: |
-|                           Figure 1                           |                           Figure 2                           |
+| :---------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------: |
+|                                         Figure 1                                          |                                         Figure 2                                          |
 
 ### Output Specification:
 
@@ -70,14 +70,14 @@ struct {
 } tree[25];
 
 void in(int root) {
-    if (tree[root].p != -1 && (tree[root].l != -1 || tree[root].r != -1))
+    if (tree[root].p != -1 and (tree[root].l != -1 or tree[root].r != -1))
         cout << "(";
     if (tree[root].l != -1)
         in(tree[root].l);
     cout << tree[root].v;
     if (tree[root].r != -1)
         in(tree[root].r);
-    if (tree[root].p != -1 && (tree[root].l != -1 || tree[root].r != -1))
+    if (tree[root].p != -1 and (tree[root].l != -1 or tree[root].r != -1))
         cout << ")";
 }
 

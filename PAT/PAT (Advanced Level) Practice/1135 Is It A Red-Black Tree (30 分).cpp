@@ -8,11 +8,11 @@ struct node {
 };
 
 bool is_black(node *x) {
-    return x == nullptr || x->val > 0; // 3
+    return x == nullptr or x->val > 0; // 3
 }
 
 bool is_red(node *x) {
-    return x && x->val < 0;
+    return x and x->val < 0;
 }
 
 void add(node *&root, int val) {
@@ -29,10 +29,10 @@ bool check(node *root, int &black_cnt) {
         ++black_cnt;
     if (root == nullptr)
         return true;
-    if (is_red(root) && !(is_black(root->left) && is_black(root->right)))
+    if (is_red(root) and !(is_black(root->left) and is_black(root->right)))
         return false; // 4
     int l_b_cnt = 0, r_b_cnt = 0;
-    if (check(root->left, l_b_cnt) && check(root->right, r_b_cnt) && l_b_cnt == r_b_cnt) { // 5
+    if (check(root->left, l_b_cnt) and check(root->right, r_b_cnt) and l_b_cnt == r_b_cnt) { // 5
         black_cnt += l_b_cnt;
         return true;
     }
@@ -52,6 +52,6 @@ int main() {
             add(root, x);
         }
         // 2
-        cout << (is_black(root) && check(root, black_cnt) ? "Yes" : "No") << "\n";
+        cout << (is_black(root) and check(root, black_cnt) ? "Yes" : "No") << "\n";
     }
 }

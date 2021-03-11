@@ -1,4 +1,4 @@
-﻿#include <cctype>
+#include <cctype>
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -39,7 +39,7 @@ int main() {
                 if (a != 0)
                     cout << " ";
             }
-            if (a != 0 || b == 0)
+            if (a != 0 or b == 0)
                 cout << int2str[0][a];
 
             cout << "\n";

@@ -54,7 +54,7 @@ int main() {
 
         // 判断是否是经过了所有城市的环
         cout << totalWeight << " ";
-        if (!(visitedCity.size() == n && path[0] == path[pathLen - 1])) {
+        if (!(visitedCity.size() == n and path[0] == path[pathLen - 1])) {
             cout << "(Not a TS cycle)\n";
             continue;
         }
@@ -68,7 +68,7 @@ int main() {
         bool isSimple = true;
 
         visitedEdge.clear();
-        for (int j = 0; j < pathLen - 1 && isSimple; ++j) {
+        for (int j = 0; j < pathLen - 1 and isSimple; ++j) {
             int u = path[j];
             int v = path[j + 1];
             if (u > v)

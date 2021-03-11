@@ -108,10 +108,10 @@ int main() {
         b = abs(b);
 
         for (auto &j : graph[a]) {
-            if (j == a || j == b || gender[j] != gender[a])
+            if (j == a or j == b or gender[j] != gender[a])
                 continue;
             for (auto &k : graph[j]) {
-                if (k == a || k == b || gender[k] != gender[b] || !graph[k].count(b))
+                if (k == a or k == b or gender[k] != gender[b] or !graph[k].count(b))
                     continue;
                 ans.insert({j, k});
             }

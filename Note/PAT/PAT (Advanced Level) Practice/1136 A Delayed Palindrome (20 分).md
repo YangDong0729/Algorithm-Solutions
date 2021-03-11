@@ -59,7 +59,7 @@ using namespace std;
 
 bool is_palindromic(string &c) {
     bool p = true;
-    for (int i = 0; i < c.length() / 2 && p; ++i)
+    for (int i = 0; i < c.length() / 2 and p; ++i)
         if (c[i] != c[c.length() - i - 1])
             p = false;
     return p;

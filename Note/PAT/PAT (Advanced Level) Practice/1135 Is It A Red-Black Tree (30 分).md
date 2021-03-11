@@ -10,8 +10,8 @@ There is a kind of ==balanced binary search tree== named **red-black tree** in t
 For example, the tree in Figure 1 is a red-black tree, while the ones in Figure 2 and 3 are not.
 
 | ![rbf1.jpg](https://images.ptausercontent.com/eff80bd4-c833-4818-9786-81680d1b304a.jpg) | ![rbf2.jpg](https://images.ptausercontent.com/b11184df-eaab-451c-b7d4-7fc1dc82b028.jpg) | ![rbf3.jpg](https://images.ptausercontent.com/625c532b-22fc-47b9-80ea-0537cf00d922.jpg) |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|                           Figure 1                           |                           Figure 2                           |                           Figure 3                           |
+| :-------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: |
+|                                        Figure 1                                         |                                        Figure 2                                         |                                        Figure 3                                         |
 
 ==For each given binary search tree, you are supposed to tell if it is a legal red-black tree.==
 
@@ -57,11 +57,11 @@ struct node {
 };
 
 bool is_black(node *x) {
-    return x == nullptr || x->val > 0; // 3
+    return x == nullptr or x->val > 0; // 3
 }
 
 bool is_red(node *x) {
-    return x && x->val < 0;
+    return x and x->val < 0;
 }
 
 void add(node *&root, int val) {
@@ -78,10 +78,10 @@ bool check(node *root, int &black_cnt) {
         ++black_cnt;
     if (root == nullptr)
         return true;
-    if (is_red(root) && !(is_black(root->left) && is_black(root->right)))
+    if (is_red(root) and !(is_black(root->left) and is_black(root->right)))
         return false; // 4
     int l_b_cnt = 0, r_b_cnt = 0;
-    if (check(root->left, l_b_cnt) && check(root->right, r_b_cnt) && l_b_cnt == r_b_cnt) { // 5
+    if (check(root->left, l_b_cnt) and check(root->right, r_b_cnt) and l_b_cnt == r_b_cnt) { // 5
         black_cnt += l_b_cnt;
         return true;
     }
@@ -101,7 +101,7 @@ int main() {
             add(root, x);
         }
         // 2
-        cout << (is_black(root) && check(root, black_cnt) ? "Yes" : "No") << "\n";
+        cout << (is_black(root) and check(root, black_cnt) ? "Yes" : "No") << "\n";
     }
 }
 ```

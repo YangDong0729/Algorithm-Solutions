@@ -22,15 +22,15 @@ int main() {
         scanf("%d%d", &x, &y);
         bool p = all.count(x);
         bool q = all.count(y);
-        if (!p || !q) {
-            if (p || q)
+        if (!p or !q) {
+            if (p or q)
                 printf("ERROR: %d is not found.\n", !p ? x : y);
             else
                 printf("ERROR: %d and %d are not found.\n", x, y);
         } else {
             auto iter = pre.begin();
             for (; iter != pre.end(); ++iter) {
-                if (*iter >= min(x, y) && *iter <= max(x, y))
+                if (*iter >= min(x, y) and *iter <= max(x, y))
                     break;
             }
             if (*iter == x)

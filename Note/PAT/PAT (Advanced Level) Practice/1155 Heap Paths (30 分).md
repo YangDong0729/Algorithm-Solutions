@@ -92,9 +92,9 @@ void print() {
 }
 
 void dfs(int s) {
-    if (s * 2 <= n && !check(a[s], a[s * 2]))
+    if (s * 2 <= n and !check(a[s], a[s * 2]))
         flag = 0;
-    if (s * 2 + 1 <= n && !check(a[s], a[s * 2 + 1]))
+    if (s * 2 + 1 <= n and !check(a[s], a[s * 2 + 1]))
         flag = 0;
 
     path.push_back(a[s]);

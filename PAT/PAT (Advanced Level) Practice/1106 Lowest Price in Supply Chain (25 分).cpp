@@ -1,4 +1,4 @@
-﻿#include <algorithm>
+#include <algorithm>
 #include <iomanip>
 #include <iostream>
 #include <queue>
@@ -44,7 +44,7 @@ int main() {
                 cnt = 1;
             } else if (minPrice == node[top].price)
                 ++cnt;
-            else  // 可以直接退出
+            else // 可以直接退出
                 break;
         } else
             for (int i = 0, size = child.size(); i < size; ++i) {

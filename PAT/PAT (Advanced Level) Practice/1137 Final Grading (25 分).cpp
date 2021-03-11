@@ -48,7 +48,7 @@ int main() {
             return a.name < b.name;
     });
 
-    for (auto i = v.begin(); i != v.end() && i->g >= 60; ++i) {
+    for (auto i = v.begin(); i != v.end() and i->g >= 60; ++i) {
         cout << i->name << " " << i->gp << " " << i->gm << " " << i->gf << " " << i->g << "\n";
     }
 }

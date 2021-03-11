@@ -77,8 +77,8 @@ using namespace std;
 int arr[105], wolf[2], liar[2];
 
 bool check(int ass) {
-    if (ass < 0) return ass == -wolf[0] || ass == -wolf[1];
-    else return ass != wolf[0] && ass != wolf[1];
+    if (ass < 0) return ass == -wolf[0] or ass == -wolf[1];
+    else return ass != wolf[0] and ass != wolf[1];
 }
 
 int main() {
@@ -91,12 +91,12 @@ int main() {
             for (int k = 0; k < 2; ++k) {
                 liar[0] = wolf[k];
                 for (int l = 1; l <= n; ++l) {
-                    if (l == wolf[1 - k] || l == liar[0]) continue;
+                    if (l == wolf[1 - k] or l == liar[0]) continue;
                     liar[1] = l;
 
                     bool flag = true;
-                    for (int m = 1; m <= n && flag; ++m) {
-                        if (m == liar[0] || m == liar[1]) flag = check(-arr[m]);
+                    for (int m = 1; m <= n and flag; ++m) {
+                        if (m == liar[0] or m == liar[1]) flag = check(-arr[m]);
                         else flag = check(arr[m]);
                     }
                     if (flag) {

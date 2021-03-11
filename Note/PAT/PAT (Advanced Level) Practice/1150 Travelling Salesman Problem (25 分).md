@@ -128,7 +128,7 @@ int main() {
         bool isSimple = true;
 
         visitedEdge.clear();
-        for (int j = 0; j < pathLen - 1 && isSimple; ++j) {
+        for (int j = 0; j < pathLen - 1 and isSimple; ++j) {
             int u = path[j];
             int v = path[j + 1];
             if (u > v) swap(u, v);

@@ -10,14 +10,14 @@ struct {
 } tree[25];
 
 void in(int root) {
-    if (tree[root].p != -1 && (tree[root].l != -1 || tree[root].r != -1))
+    if (tree[root].p != -1 and (tree[root].l != -1 or tree[root].r != -1))
         cout << "(";
     if (tree[root].l != -1)
         in(tree[root].l);
     cout << tree[root].v;
     if (tree[root].r != -1)
         in(tree[root].r);
-    if (tree[root].p != -1 && (tree[root].l != -1 || tree[root].r != -1))
+    if (tree[root].p != -1 and (tree[root].l != -1 or tree[root].r != -1))
         cout << ")";
 }
 

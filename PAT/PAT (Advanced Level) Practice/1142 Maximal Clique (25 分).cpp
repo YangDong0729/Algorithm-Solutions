@@ -23,8 +23,8 @@ int main() {
             cin >> seq[j];
 
         bool clique = true;
-        for (int p = 0; p < k && clique; ++p)
-            for (int q = p + 1; q < k && clique; ++q)
+        for (int p = 0; p < k and clique; ++p)
+            for (int q = p + 1; q < k and clique; ++q)
                 if (g[seq[p]][seq[q]] == 0)
                     clique = false;
 
@@ -37,11 +37,11 @@ int main() {
         vector<bool> in(nv + 5);
         for (auto &e : seq)
             in[e] = true;
-        for (int j = 1; j <= nv && max_c; ++j) {
+        for (int j = 1; j <= nv and max_c; ++j) {
             if (in[j])
                 continue;
             bool found = true;
-            for (auto p = seq.begin(); p != seq.end() && found; ++p)
+            for (auto p = seq.begin(); p != seq.end() and found; ++p)
                 if (g[*p][j] == 0)
                     found = false;
             if (found)

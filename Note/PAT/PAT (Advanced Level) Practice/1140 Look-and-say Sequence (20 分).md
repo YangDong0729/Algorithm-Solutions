@@ -41,7 +41,7 @@ int main() {
         for (auto p = s.begin(); p != s.end();) {
             char c = *p;
             int cnt = 0;
-            while (p != s.end() && *p == c) {
+            while (p != s.end() and *p == c) {
                 ++p;
                 ++cnt;
             }

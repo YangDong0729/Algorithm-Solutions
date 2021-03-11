@@ -1,6 +1,6 @@
-﻿#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -21,16 +21,19 @@ int main() {
         lMax[i] = max(arr[i], lMax[i - 1]);
 
     // 计算每个位置（包括）的右边最小的数
-    if (n - 1 > 0) rMin[n - 1] = arr[n - 1];
+    if (n - 1 > 0)
+        rMin[n - 1] = arr[n - 1];
     for (int i = n - 2; i >= 0; --i)
         rMin[i] = min(arr[i], rMin[i + 1]);
 
     // 计算可能的主元
     vector<int> priv;
-    if (arr[0] <= rMin[1]) priv.push_back(arr[0]);
-    if (n - 2 > 0 && arr[n - 1] >= lMax[n - 2]) priv.push_back(arr[n - 1]);
+    if (arr[0] <= rMin[1])
+        priv.push_back(arr[0]);
+    if (n - 2 > 0 and arr[n - 1] >= lMax[n - 2])
+        priv.push_back(arr[n - 1]);
     for (int i = 1; i < n - 1; ++i)
-        if (arr[i] >= lMax[i - 1] && arr[i] <= rMin[i + 1])
+        if (arr[i] >= lMax[i - 1] and arr[i] <= rMin[i + 1])
             priv.push_back(arr[i]);
 
     // 排序后输出
@@ -39,7 +42,8 @@ int main() {
     cout << sz << '\n';
     for (int i = 0; i < sz; ++i) {
         cout << priv[i];
-        if (i != sz - 1) cout << ' ';
+        if (i != sz - 1)
+            cout << ' ';
     }
     cout << '\n';
 }

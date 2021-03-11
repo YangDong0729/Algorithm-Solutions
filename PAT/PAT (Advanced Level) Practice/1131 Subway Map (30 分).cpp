@@ -32,10 +32,10 @@ void dijkstra(int start) {
 		pq.pop();
 		visit[u] = true;
 
-		if (dist[u] != -1 && dist[u] < u_dist)
+		if (dist[u] != -1 and dist[u] < u_dist)
 			continue; // dist[u] != -1
 		for (auto& v : graph[u]) {
-			if (!visit[v] && (dist[v] == -1 || dist[v] > u_dist + 1)) {
+			if (!visit[v] and (dist[v] == -1 or dist[v] > u_dist + 1)) {
 				dist[v] = u_dist + 1;
 				pq.push({ dist[v], v });
 				pre[v].clear();
@@ -64,8 +64,8 @@ void trace(int x, int l, int trans_cnt) {
 
 	tmp_path.push_back(x);
 	for (auto& v : pre[x]) {
-		trace(v, line[{v, x}], trans_cnt + (line[{v, x}] != l));  // 这里 (line[{v, x}] != l) 需要加括号
-		// 但我之前用 unordered_map 时，由于不能用 pair ，所以哈希了一下，写成了 line[v * 10000 + x] ，这种不写括号竟然也对了
+		trace(v, line[{v, x}], trans_cnt + (line[{v, x}] != l)); // 这里 (line[{v, x}] != l) 需要加括号
+																 // 但我之前用 unordered_map 时，由于不能用 pair ，所以哈希了一下，写成了 line[v * 10000 + x] ，这种不写括号竟然也对了
 	}
 	tmp_path.pop_back();
 }

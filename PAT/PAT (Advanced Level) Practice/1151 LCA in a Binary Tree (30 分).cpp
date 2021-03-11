@@ -16,11 +16,11 @@ void lca(int inL, int inR, int preL, int a, int b) {
 
     int inRoot = pos[pre[preL]], aIn = pos[a], bIn = pos[b];
 
-    if (aIn < inRoot && bIn < inRoot) // 最低公共结点在root的左子树
+    if (aIn < inRoot and bIn < inRoot) // 最低公共结点在root的左子树
         lca(inL, inRoot - 1, preL + 1, a, b);
-    else if ((aIn < inRoot && bIn > inRoot) || (aIn > inRoot && bIn < inRoot)) // LCA就是root
+    else if ((aIn < inRoot and bIn > inRoot) or (aIn > inRoot and bIn < inRoot)) // LCA就是root
         printf("LCA of %d and %d is %d.\n", a, b, in[inRoot]);
-    else if (aIn > inRoot && bIn > inRoot) // LCA在root的右子树
+    else if (aIn > inRoot and bIn > inRoot) // LCA在root的右子树
         lca(inRoot + 1, inR, preL + 1 + (inRoot - inL), a, b);
     else if (aIn == inRoot)
         printf("%d is an ancestor of %d.\n", a, b);
@@ -34,16 +34,16 @@ int main() {
 
     for (int i = 1; i <= n; i++) {
         scanf("%d", &in[i]);
-        pos[in[i]] = i;  // 免得重建时还需要查找，也便于确定是否存在
+        pos[in[i]] = i; // 免得重建时还需要查找，也便于确定是否存在
     }
     for (int i = 1; i <= n; i++)
         scanf("%d", &pre[i]);
 
     for (int i = 0; i < m; i++) {
         scanf("%d %d", &a, &b);
-        if (pos[a] == 0 && pos[b] == 0)
+        if (pos[a] == 0 and pos[b] == 0)
             printf("ERROR: %d and %d are not found.\n", a, b);
-        else if (pos[a] == 0 || pos[b] == 0)
+        else if (pos[a] == 0 or pos[b] == 0)
             printf("ERROR: %d is not found.\n", pos[a] == 0 ? a : b);
         else
             lca(1, n, 1, a, b);

@@ -20,7 +20,7 @@ int main() {
         if (list[i].data < 0)
             ans.push_back({i, list[i].data});
     for (int i = root; i != -1; i = list[i].addr)
-        if (list[i].data >= 0 && list[i].data <= k)
+        if (list[i].data >= 0 and list[i].data <= k)
             ans.push_back({i, list[i].data});
     for (int i = root; i != -1; i = list[i].addr)
         if (list[i].data > k)
