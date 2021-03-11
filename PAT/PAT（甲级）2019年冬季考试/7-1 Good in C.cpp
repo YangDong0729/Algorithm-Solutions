@@ -37,10 +37,10 @@ int main() {
     vector<string> word;
 
     for (int i = 0; i < sentence.length();) {
-        while (i < sentence.length() && !(sentence[i] >= 'A' and sentence[i] <= 'Z'))
+        while (i < sentence.length() and !(sentence[i] >= 'A' and sentence[i] <= 'Z'))
             ++i; // 找到单词的第一个字母
         int j = i;
-        for (; j < sentence.length() && (sentence[j] >= 'A' and sentence[j] <= 'Z'); ++j)
+        for (; j < sentence.length() and (sentence[j] >= 'A' and sentence[j] <= 'Z'); ++j)
             ;
         if (i < j) // [i, j) 是一个单词
             word.push_back(sentence.substr(i, j - i));
