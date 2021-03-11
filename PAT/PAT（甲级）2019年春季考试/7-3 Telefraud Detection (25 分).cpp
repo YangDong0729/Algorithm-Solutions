@@ -30,18 +30,18 @@ int father[1005];
 record records[1005];
 vector<int> suspects; // 所有可疑人员
 
-int findFather(int x) {
+int find(int x) {
     int f;
     if (father[x] == x)
         f = x;
     else
-        f = findFather(father[x]);
+        f = find(father[x]);
     return f;
 }
 
 void unin(int a, int b) {
-    int fa = findFather(a);
-    int fb = findFather(b);
+    int fa = find(a);
+    int fb = find(b);
     if (fa != fb)
         father[fa] = fb; // 注意是fa
 }
@@ -65,13 +65,13 @@ int main() {
     for (int i = 1; i <= n; ++i) {
         int shortCall = 0, callback = 0;
         for (int j = 1; j <= n; ++j) {
-            if (records[i].calls[j] > 0 && records[i].calls[j] <= 5) {
+            if (records[i].calls[j] > 0 and records[i].calls[j] <= 5) {
                 ++shortCall;
                 if (records[i].callBack.count(j))
                     ++callback;
             }
         }
-        if (shortCall > k && callback * 5 <= shortCall) {
+        if (shortCall > k and callback * 5 <= shortCall) {
             suspects.push_back(i);
         }
     }
@@ -86,7 +86,7 @@ int main() {
         father[i] = i;
     for (int i = 0; i < suspects.size(); ++i) {
         for (int j = i + 1; j < suspects.size(); ++j) {
-            if (records[suspects[i]].calls[suspects[j]] != 0 && records[suspects[j]].calls[suspects[i]] != 0)
+            if (records[suspects[i]].calls[suspects[j]] != 0 and records[suspects[j]].calls[suspects[i]] != 0)
                 unin(suspects[i], suspects[j]);
         }
     }
@@ -94,7 +94,7 @@ int main() {
     int gangsCnt = 0;
     map<int, int> head2index;
     for (int i = 0; i < suspects.size(); ++i) {
-        int head = findFather(suspects[i]);
+        int head = find(suspects[i]);
         if (!head2index.count(head))
             head2index[head] = gangsCnt++;
         gangs[head2index[head]].member.push_back(suspects[i]);

@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -29,18 +29,18 @@ node *create(int postRoot, int inL, int inR, int depth, node *parent) {
     root->lChild = create(postRoot - 1 - inR + inRoot, inL, inRoot - 1, depth + 1, root);
     root->rChild = create(postRoot - 1, inRoot + 1, inR, depth + 1, root);
 
-    if ((root->lChild == nullptr && root->rChild != nullptr) ||
-        (root->lChild != nullptr && root->rChild == nullptr))
+    if ((root->lChild == nullptr and root->rChild != nullptr) or
+        (root->lChild != nullptr and root->rChild == nullptr))
         isFull = false;
 
     return root;
 }
 
 node *search(node *root, int target) {
-    if (root == nullptr || root->val == target)
+    if (root == nullptr or root->val == target)
         return root;
     node *ret = search(root->lChild, target);
-    if (ret && ret->val == target)
+    if (ret and ret->val == target)
         return ret;
     return search(root->rChild, target);
 }
@@ -79,25 +79,25 @@ int main() {
             sscanf(s.c_str(), "%d and %d", &a, &b);
             node *ra = search(root, a);
             node *rb = search(root, b);
-            ok = ra && rb && ra->parent == rb->parent;
+            ok = ra and rb and ra->parent == rb->parent;
         } else if (*s.rbegin() == 'l') {
             sscanf(s.c_str(), "%d and %d", &a, &b);
             node *ra = search(root, a);
             node *rb = search(root, b);
-            ok = ra && rb && ra->depth == rb->depth;
+            ok = ra and rb and ra->depth == rb->depth;
         } else if (s.find("parent") != string::npos) {
             sscanf(s.c_str(), "%d is the parent of %d", &a, &b);
             node *ra = search(root, a);
-            ok = ra && ((ra->lChild && ra->lChild->val == b) ||
-                        (ra->rChild && ra->rChild->val == b));
+            ok = ra and ((ra->lChild and ra->lChild->val == b) or
+                         (ra->rChild and ra->rChild->val == b));
         } else if (s.find("left") != string::npos) {
             sscanf(s.c_str(), "%d is the left child of %d", &a, &b);
             node *rb = search(root, b);
-            ok = rb && rb->lChild && rb->lChild->val == a;
+            ok = rb and rb->lChild and rb->lChild->val == a;
         } else {
             sscanf(s.c_str(), "%d is the right child of %d", &a, &b);
             node *rb = search(root, b);
-            ok = rb && rb->rChild && rb->rChild->val == a;
+            ok = rb and rb->rChild and rb->rChild->val == a;
         }
         cout << (ok ? "Yes\n" : "No\n");
     }
