@@ -4,44 +4,45 @@
 using namespace std;
 
 struct Record {
-	int value, run;
-	bool operator>(const Record& r) const {
-		if (run != r.run)
-			return run > r.run;
-		else
-			return value > r.value;
-	}
+    int value, run;
+    bool operator>(const Record &r) const {
+        if (run != r.run)
+            return run > r.run;
+        else
+            return value > r.value;
+    }
 };
 
 int main() {
-	int N, M, x;
-	cin >> N >> M;
+    int N, M, x;
+    cin >> N >> M;
 
-	priority_queue<Record, vector<Record>, greater<Record>> pq;
-	for (int i = 0; i < M; i++) {
-		cin >> x;
-		pq.push({ x, 1 });
-	}
-	bool first = true;
-	int cur_run = 0;
-	for (int i = 0; i < N - M || !pq.empty(); ) {
-		Record top = pq.top();
-		pq.pop();
-		if (top.run == cur_run) {
-			cout << " ";
-		}
-		else {
-			cur_run = top.run;
-			if (first) { first = false; }
-			else cout << "\n";
-		}
-		cout << top.value;
-		if (i < N - M) {
-			cin >> x;
-			i++;
-			pq.push({ x, x > top.value ? cur_run : cur_run + 1 });
-		}
-	}
+    priority_queue<Record, vector<Record>, greater<Record>> pq;
+    for (int i = 0; i < M; i++) {
+        cin >> x;
+        pq.push({x, 1});
+    }
+    bool first = true;
+    int cur_run = 0;
+    for (int i = 0; i < N - M or !pq.empty();) {
+        Record top = pq.top();
+        pq.pop();
+        if (top.run == cur_run) {
+            cout << " ";
+        } else {
+            cur_run = top.run;
+            if (first) {
+                first = false;
+            } else
+                cout << "\n";
+        }
+        cout << top.value;
+        if (i < N - M) {
+            cin >> x;
+            i++;
+            pq.push({x, x > top.value ? cur_run : cur_run + 1});
+        }
+    }
 }
 
 // 败者树

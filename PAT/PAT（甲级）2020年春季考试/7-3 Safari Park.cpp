@@ -1,6 +1,6 @@
 ﻿#include <iostream>
-#include <vector>
 #include <unordered_set>
+#include <vector>
 
 using namespace std;
 
@@ -14,7 +14,7 @@ int main() {
 
     for (int i = 0; i < r; ++i) {
         cin >> a >> b;
-        edge.push_back({ a, b });
+        edge.push_back({a, b});
     }
 
     cin >> m;
@@ -35,7 +35,7 @@ int main() {
         }
 
         bool ok = true;
-        for (auto& e : edge) {
+        for (auto &e : edge) {
             //cout << e.first << " " << e.second << "\n";
             //cout << animal[e.first] << animal[e.second] << "\n";
             if (animal[e.first] == animal[e.second]) {
