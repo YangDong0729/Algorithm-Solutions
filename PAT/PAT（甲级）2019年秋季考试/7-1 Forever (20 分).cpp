@@ -50,13 +50,13 @@ struct record {
 vector<record> r;
 
 void dfs(int sum, int val, int left, int target) {
-    if (left == 0 && sum == target) {
+    if (left == 0 and sum == target) {
         int n = digitSum(val + 1), g = gcd(sum, n);
-        if (g > 2 && isPrime(g))
+        if (g > 2 and isPrime(g))
             r.push_back(record(val, n));
     } else if (left > 0)
         for (int i = 0; i <= 9; ++i)
-            if (sum + i + left * 9 - 9 >= target && sum + i <= target)
+            if (sum + i + left * 9 - 9 >= target and sum + i <= target)
                 dfs(sum + i, val * 10 + i, left - 1, target);
 }
 

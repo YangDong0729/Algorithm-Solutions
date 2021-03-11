@@ -30,8 +30,8 @@ bool dijkstra() {
         // 找出没有 visit 过的距离起点最小的所有的点
         unordered_set<int> shortest;
         for (int j = 1; j <= nv; ++j)
-            if (!visited[j] && dist[j] != -1) {
-                if (minDist == -1 || minDist > dist[j]) {
+            if (!visited[j] and dist[j] != -1) {
+                if (minDist == -1 or minDist > dist[j]) {
                     minDist = dist[j];
                     shortest.clear();
                     shortest.insert(j);
@@ -48,7 +48,7 @@ bool dijkstra() {
         visited[u] = true;
         for (auto &e : adj[u]) {
             int v = e.v, uvWeight = e.weight;
-            if (!visited[v] && (dist[v] == -1 || dist[v] > dist[u] + uvWeight))
+            if (!visited[v] and (dist[v] == -1 or dist[v] > dist[u] + uvWeight))
                 dist[v] = dist[u] + uvWeight;
         }
     }

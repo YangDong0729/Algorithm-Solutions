@@ -9,7 +9,7 @@ struct node {
 } nodes[30];
 
 void traverse(int root) {
-    if ((nodes[root].lChild == -1 || nodes[root].rChild == -1) && nodes[root].lChild != nodes[root].rChild) {
+    if ((nodes[root].lChild == -1 or nodes[root].rChild == -1) and nodes[root].lChild != nodes[root].rChild) {
         cout << "(" << nodes[root].s;
         if (nodes[root].lChild != -1)
             traverse(nodes[root].lChild);

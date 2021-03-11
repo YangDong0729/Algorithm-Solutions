@@ -30,8 +30,8 @@ int main() {
     if (a.size() < b.size())
         swap(a, b);
     reverse(b.begin(), b.end());
-    for (int i = 0, j = 0, k = 0; i < a.size() || j < b.size(); ++k) {
-        if (k % 3 == 2 && j < b.size())
+    for (int i = 0, j = 0, k = 0; i < a.size() or j < b.size(); ++k) {
+        if (k % 3 == 2 and j < b.size())
             c.push_back(b[j++]);
         else
             c.push_back(a[i++]);
