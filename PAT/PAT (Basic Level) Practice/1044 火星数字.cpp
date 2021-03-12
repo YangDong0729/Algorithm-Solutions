@@ -8,8 +8,8 @@
 //string unitDigit[13] = { "tret","jan","feb","mar","apr","may","jun","jly","aug","sep","oct","nov","dec" };
 //string tenDigit[13] = { "tret","tam","hel","maa","huh","tou","kes","hei","elo","syy","lok","mer","jou" };
 //string numToStr[170];
-//map<string, int> strToNum; // ×Öµä±£´æ ×Ö·û(ÈÎÒâ)=>>ÕûÐÍ(ÈÎÒâ) Ó³Éä
-//						   // Êý×é±£´æ ÕûÐÍ=>>ÆäËû Ó³Éä
+//map<string, int> strToNum; // ï¿½Öµä±£ï¿½ï¿½ ï¿½Ö·ï¿½(ï¿½ï¿½ï¿½ï¿½)=>>ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) Ó³ï¿½ï¿½
+//						   // ï¿½ï¿½ï¿½é±£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½=>>ï¿½ï¿½ï¿½ï¿½ Ó³ï¿½ï¿½
 //void init() {
 //	for (int i = 0; i < 13; i++)
 //	{
@@ -35,7 +35,7 @@
 //	while (T--) {
 //		string str;
 //		getline(cin, str);
-//		if (str[0] >= '0' && str[0] <= '9') {
+//		if (str[0] >= '0' and str[0] <= '9') {
 //			int num = 0;
 //			for (int i = 0; i < str.length(); i++)
 //			{

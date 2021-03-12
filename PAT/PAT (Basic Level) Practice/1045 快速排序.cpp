@@ -27,7 +27,7 @@
 //	int count = 0;
 //	for (int i = 0; i < n; i++)
 //	{
-//		if (num[i] <= checkR[i] && num[i] >= checkL[i]) {
+//		if (num[i] <= checkR[i] and num[i] >= checkL[i]) {
 //			num[count++] = num[i];
 //		}
 //	}

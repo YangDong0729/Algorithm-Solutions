@@ -12,31 +12,31 @@
 //	len[2] = strlen(str[2]);
 //	len[3] = strlen(str[3]);
 //	int i;
-//	for (i = 0; i < len[0] && i<len[1]; i++)
+//	for (i = 0; i < len[0] and i<len[1]; i++)
 //	{
-//		if (str[0][i]==str[1][i] && str[0][i]>='A' && str[0][i]<='G')
+//		if (str[0][i]==str[1][i] and str[0][i]>='A' and str[0][i]<='G')
 //		{
 //			printf("%s ", week[str[0][i] - 'A']);
 //			break;
 //		}
 //	}
-//	for (i++; i < len[0] && i < len[1]; i++) {
+//	for (i++; i < len[0] and i < len[1]; i++) {
 //		if (str[0][i]==str[1][i])
 //		{
-//			if (str[0][i] >= '0' && str[1][i] <= '9') {
+//			if (str[0][i] >= '0' and str[1][i] <= '9') {
 //				printf("%02d:", str[0][i] - '0');
 //				break;
 //			}
-//			else if (str[0][i]>='A' && str[1][i]<='N')
+//			else if (str[0][i]>='A' and str[1][i]<='N')
 //			{
 //				printf("%02d:", str[0][i] - 'A' + 10);
 //				break;
 //			}
 //		}
 //	}
-//	for (i = 0; i < len[2] && i < len[3]; i++) {
+//	for (i = 0; i < len[2] and i < len[3]; i++) {
 //		if (str[2][i] == str[3][i]) {
-//			if ((str[2][i] >= 'A' && str[2][i] <= 'Z') || (str[2][i] >= 'a' && str[2][i] <= 'z')) {
+//			if ((str[2][i] >= 'A' and str[2][i] <= 'Z') or (str[2][i] >= 'a' and str[2][i] <= 'z')) {
 //				printf("%02d", i);
 //				break;
 //			}

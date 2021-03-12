@@ -5,7 +5,6 @@
 //#include <iostream>
 //using namespace std;
 
-
 //bool cmp(int a, int b) {
 //	return a > b;
 //}
@@ -38,7 +37,7 @@
 //		MAX = to_number(num);
 //		n = MAX - MIN;
 //		printf("%04d - %04d = %04d\n", MAX, MIN, n);
-//		if (n == 0 || n == 6174) break;
+//		if (n == 0 or n == 6174) break;
 //	}
 //	return 0;
 //}

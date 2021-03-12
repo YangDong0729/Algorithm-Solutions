@@ -12,7 +12,7 @@
 //int main1017() {
 //	char big[1010];
 //	int ansQ[1010];
-//	memset(ansQ, -1, 1010); // ·Ç³£ÖØÒª ÓëµÚ¶þ¸ö²âÊÔµãÓÐ¹Ø
+//	memset(ansQ, -1, 1010); // ï¿½Ç³ï¿½ï¿½ï¿½Òª ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½ï¿½Ð¹ï¿½
 //	int n,ansR=0,len;
 //	scanf("%s %d", big, &n);
 //	len = strlen(big);
@@ -23,12 +23,12 @@
 //		ansQ[i] = v / n;
 //		ansR = v % n;
 //	}
-//	if (ansQ[0] == 0 && ansQ[1]<0) printf("0 %d", ansR);
+//	if (ansQ[0] == 0 and ansQ[1]<0) printf("0 %d", ansR);
 //	else {
 //		int flag = true;
 //		for (int i = 0; i < len; i++)
 //		{
-//			if (ansQ[i] == 0 && flag) continue;
+//			if (ansQ[i] == 0 and flag) continue;
 //			else {
 //				printf("%d", ansQ[i]);
 //				flag = false;

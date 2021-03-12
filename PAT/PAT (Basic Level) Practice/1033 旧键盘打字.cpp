@@ -14,7 +14,7 @@
 //	int len = strlen(str);
 //	for (int i = 0; i < len; i++)
 //	{
-//		if (str[i]>='A' && str[i]<='Z')
+//		if (str[i]>='A' and str[i]<='Z')
 //		{
 //			str[i] = str[i] - 'A' + 'a';
 //		}
@@ -24,10 +24,10 @@
 //	len = strlen(str);
 //	for (int i = 0; i < len; i++)
 //	{
-//		if (str[i]>='A' && str[i]<='Z')
+//		if (str[i]>='A' and str[i]<='Z')
 //		{
 //			int low = str[i] - 'A' + 'a';
-//			if (hashTable[low] == true && hashTable['+'] == true) printf("%c", str[i]);
+//			if (hashTable[low] == true and hashTable['+'] == true) printf("%c", str[i]);
 //		}
 //		else if (hashTable[str[i]]==true)
 //		{
@@ -56,7 +56,7 @@
 //	for (int i = 0; i < len; i++)
 //	{
 //		char c2,c1 = str[i];
-//		if (str[i] >= 'A' && str[i] <= 'Z') {
+//		if (str[i] >= 'A' and str[i] <= 'Z') {
 //			if (signPlus) printf("%c", c1);
 //			else continue;
 //			c1 += 32;
@@ -65,7 +65,7 @@
 //		for (j=0; j < lenBroken; j++)
 //		{
 //			c2 = broken[j];
-//			if (c2 >= 'A' && c2 < 'Z') c2 += 32;
+//			if (c2 >= 'A' and c2 < 'Z') c2 += 32;
 //			if (c1 == c2) break;
 //			else continue;
 //		}

@@ -17,7 +17,7 @@
 //	int countT = strlen(pearl);
 //	for (int i = 0; i < countT; i++)
 //	{
-//		if (dic.count(pearl[i]) == 0) 
+//		if (dic.count(pearl[i]) == 0)
 //			dic[pearl[i]] = 1;
 //		else dic[pearl[i]]++;
 //	}
@@ -25,7 +25,7 @@
 //	int len = strlen(pearl);
 //	for (int i = 0; i < len; i++)
 //	{
-//		if (dic.count(pearl[i]) == 0 || dic[pearl[i]] == 0) {
+//		if (dic.count(pearl[i]) == 0 or dic[pearl[i]] == 0) {
 //			sign = false;
 //			countF++;
 //		}

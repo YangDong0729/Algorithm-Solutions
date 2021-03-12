@@ -20,7 +20,7 @@
 //	scanf("%d", &n);
 //	for (int i = 3; i+2 <= n; i++)
 //	{
-//		if (isPrime(i) && isPrime(i + 2)) {
+//		if (isPrime(i) and isPrime(i + 2)) {
 //			count++;
 //		}
 //	}

@@ -1,4 +1,4 @@
-﻿#include <cstdio>
+#include <cstdio>
 
 int main() {
     int result[60], tmp[60], order[60];
@@ -21,6 +21,7 @@ int main() {
 
     for (int i = 1; i <= 54; ++i) {
         printf("%c%d", color[(result[i] - 1) / 13], (result[i] - 1) % 13 + 1);
-        if (i != 54) putchar(' ');
+        if (i != 54)
+            putchar(' ');
     }
 }

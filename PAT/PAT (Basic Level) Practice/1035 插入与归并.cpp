@@ -29,11 +29,11 @@
 //	bool flag = false;
 //	for (int i = 1; i < n; i++)
 //	{
-//		if (i != 1 && isSame(tempOri,changed)) {
+//		if (i != 1 and isSame(tempOri,changed)) {
 //			flag = true;
 //		}
 //		int temp = tempOri[i], j = i;
-//		while (j > 0 && tempOri[j - i] > temp) {
+//		while (j > 0 and tempOri[j - i] > temp) {
 //			tempOri[j] = tempOri[j - 1];
 //			j--;
 //		}
@@ -49,7 +49,7 @@
 //	bool flag = false;
 //	for (int step = 2; step/2 <= n; step*=2)
 //	{
-//		if (step != 2 && isSame(tempOri, changed)) {
+//		if (step != 2 and isSame(tempOri, changed)) {
 //			flag=true;
 //		}
 //		for (int i = 0; i < n; i+=step)

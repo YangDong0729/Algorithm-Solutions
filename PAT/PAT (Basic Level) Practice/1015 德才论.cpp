@@ -4,7 +4,7 @@
 //#include <algorithm>
 //using namespace std;
 
-// 此题目中的algorithm中的sort带三个参数的用法需要了解
+// 锟斤拷锟斤拷目锟叫碉拷algorithm锟叫碉拷sort锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟矫凤拷锟斤拷要锟剿斤拷
 
 //struct Student {
 //	char id[10];
@@ -26,13 +26,13 @@
 //	{
 //		scanf("%s%d%d", stu[i].id, &stu[i].de, &stu[i].cai);
 //		stu[i].sum = stu[i].de + stu[i].cai;
-//		if (stu[i].de<L || stu[i].cai<L)
+//		if (stu[i].de<L or stu[i].cai<L)
 //		{
 //			stu[i].flag = 5;
 //			m--;
 //		}
-//		else if (stu[i].de >= H && stu[i].cai >= H) stu[i].flag = 1;
-//		else if (stu[i].de >= H && stu[i].cai < H) stu[i].flag = 2;
+//		else if (stu[i].de >= H and stu[i].cai >= H) stu[i].flag = 1;
+//		else if (stu[i].de >= H and stu[i].cai < H) stu[i].flag = 2;
 //		else if (stu[i].de >= stu[i].cai) stu[i].flag = 3;
 //		else stu[i].flag = 4;
 //	}

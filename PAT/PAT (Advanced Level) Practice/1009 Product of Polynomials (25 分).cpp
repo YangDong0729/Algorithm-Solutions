@@ -1,4 +1,4 @@
-﻿#include <cstdio>
+#include <cstdio>
 
 int main() {
     const int SIZE = 2005;

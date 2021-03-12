@@ -16,8 +16,8 @@
 //	int len = strlen(str);
 //	for (int i = 0; i < len; i++)
 //	{
-//		if (str[i] >= 'A' && str[i] <= 'Z') str[i] = str[i] - 'A' + 'a';
-//		if (str[i] >= 'a' && str[i] <= 'z') {
+//		if (str[i] >= 'A' and str[i] <= 'Z') str[i] = str[i] - 'A' + 'a';
+//		if (str[i] >= 'a' and str[i] <= 'z') {
 //			if (dic.count(str[i]) == 0) dic[str[i]] = 1;
 //			else dic[str[i]]++;
 //		}
@@ -27,7 +27,7 @@
 //			x = it->first;
 //			m = it->second;
 //		}
-//		else if (it->second == m && it->first<x) {
+//		else if (it->second == m and it->first<x) {
 //			x = it->first;
 //		}
 //	}

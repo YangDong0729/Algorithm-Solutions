@@ -1,4 +1,4 @@
-﻿#include <cstdio>
+#include <cstdio>
 
 int main() {
     constexpr auto SIZE = 10005;

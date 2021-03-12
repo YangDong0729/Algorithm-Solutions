@@ -42,7 +42,7 @@
 //		{
 //			if (str[i] == '.') continue;
 //			printf("%c", str[i]);
-//			if (i == exp + 2 && pos - 3 != exp)
+//			if (i == exp + 2 and pos - 3 != exp)
 //			{
 //				printf(".");
 //			}

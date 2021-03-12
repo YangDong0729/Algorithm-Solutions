@@ -25,7 +25,7 @@
 //			}
 //			else if (str[i] != 'A') other++;
 //		}
-//		if ((num_p != 1) || (num_t != 1) || (other != 0) || (loc_t - loc_p <= 1)) {
+//		if ((num_p != 1) or (num_t != 1) or (other != 0) or (loc_t - loc_p <= 1)) {
 //			printf("NO\n");
 //			continue;
 //		}
