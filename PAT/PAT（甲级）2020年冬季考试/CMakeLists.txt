@@ -1,0 +1,7 @@
+file( GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/ *.cpp )
+ 
+foreach(SOURCE IN LISTS SOURCES)
+    string(SUBSTRING ${SOURCE} 0 3 PROGRAM)
+    string(PREPEND PROGRAM "PAT_2020_WINTER_")
+    add_executable(${PROGRAM} ${SOURCE})
+endforeach(SOURCE)
