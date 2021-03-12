@@ -1,0 +1,10 @@
+file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/ *.c*)
+ 
+foreach(SOURCE IN LISTS SOURCES)
+    string(REGEX MATCH ".*[0-9]+-[0-9]+\.[0-9]+" PROGRAM ${SOURCE})
+    string(REPLACE "案例" "CASE_" PROGRAM ${PROGRAM})
+    string(REPLACE "基础实验" "BASIC_" PROGRAM ${PROGRAM})
+    string(REPLACE "进阶实验" "ADVANCED_" PROGRAM ${PROGRAM})
+    string(PREPEND PROGRAM "DS_")
+    add_executable(${PROGRAM} ${SOURCE})
+endforeach(SOURCE)
