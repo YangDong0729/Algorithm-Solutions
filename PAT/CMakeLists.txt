@@ -1,4 +1,9 @@
-cmake_minimum_required (VERSION 3.8)
-
 add_subdirectory ("PAT (Basic Level) Practice")
 add_subdirectory ("PAT (Advanced Level) Practice")
+
+add_subdirectory ("PAT（甲级）2019年春季考试")
+add_subdirectory ("PAT（甲级）2019年秋季考试")
+add_subdirectory ("PAT（甲级）2019年冬季考试")
+add_subdirectory ("PAT（甲级）2020年春季考试")
+add_subdirectory ("PAT（甲级）2020年秋季考试")
+add_subdirectory ("PAT（甲级）2020年冬季考试")
