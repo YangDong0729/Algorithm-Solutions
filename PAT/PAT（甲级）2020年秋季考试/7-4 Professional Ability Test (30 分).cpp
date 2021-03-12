@@ -124,7 +124,8 @@ int main() {
     }
 
     vector<vector<int>> pre(N + 1);
-    dijkstra(N, adj, pre);
+    if (consistent)
+        dijkstra(N, adj, pre);
 
     int K;
     cin >> K;
