@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         auto map = vector<int>(256, -1); // 字符 -> 最后出现的位置

@@ -10,7 +10,7 @@ public:
                 continue;
             int current_height = 0;
 
-            while (!stk.empty() && stk.top().second <= h) {
+            while (!stk.empty() and stk.top().second <= h) {
                 auto t = stk.top();
                 stk.pop();
 

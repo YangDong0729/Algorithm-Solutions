@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
     public int countPrimes(int n) {
         boolean[] isPrime = new boolean[n];
         Arrays.fill(isPrime, true);

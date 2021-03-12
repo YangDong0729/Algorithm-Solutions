@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
     // 后驱节点
     ListNode successor = null;
 

@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     vector<string> ans;
 
@@ -13,7 +13,7 @@ public:
             solve(n, left, right + 1, track);
             track.pop_back();
         }
-        if (left == n && right == n) {
+        if (left == n and right == n) {
             ans.push_back(track);
         }
     }

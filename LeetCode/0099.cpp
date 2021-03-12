@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     void traverse(TreeNode *t, TreeNode *&first, TreeNode *&second, TreeNode *&prev) {
         if (t == nullptr)
@@ -6,7 +6,7 @@ public:
 
         traverse(t->left, first, second, prev);
 
-        if (prev && t->val < prev->val) {
+        if (prev and t->val < prev->val) {
             if (first) {
                 second = t;
             } else {

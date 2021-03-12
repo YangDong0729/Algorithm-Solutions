@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     vector<vector<int>> subsets(vector<int> &nums) {
         // base case，返回一个空集

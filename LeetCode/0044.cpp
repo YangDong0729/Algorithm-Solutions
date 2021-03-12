@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     bool isMatch(string s, string p) {
         int sl = 0, slen = int(s.length());
@@ -6,7 +6,7 @@ public:
         while (plen != 0) {
             if (p[pl] == '*') {
                 int len = 0;
-                while (len < plen && p[pl + len] == '*')
+                while (len < plen and p[pl + len] == '*')
                     ++len;
                 if (len == plen)
                     return true;
@@ -14,7 +14,7 @@ public:
                 plen -= len;
             } else {
                 int len = 0;
-                while (len < plen && p[pl + len] != '*')
+                while (len < plen and p[pl + len] != '*')
                     ++len;
                 if (pl == 0) {
                     if (slen < len)
@@ -58,6 +58,6 @@ public:
     }
 
     bool charEqual(char a, char b) {
-        return a == '?' || b == '?' || a == b;
+        return a == '?' or b == '?' or a == b;
     }
 };

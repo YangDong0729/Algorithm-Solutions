@@ -12,7 +12,7 @@
             return true;
         boolean res = traverse(right.next);
         // 后序遍历代码
-        res = res && (right.val == left.val);
+        res = res and (right.val == left.val);
         left = left.next;
         return res;
     }

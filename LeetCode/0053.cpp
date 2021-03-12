@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     int maxSubArray(vector<int> &nums) {
         int sum = nums[0], max_sum = sum;

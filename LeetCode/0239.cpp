@@ -5,7 +5,7 @@ private:
 public:
     void push(int n) {
         // 将前面小于自己的都删除
-        while (!q.empty() && q.back() < n) {
+        while (!q.empty() and q.back() < n) {
             q.pop_back();
         }
         q.push_back(n);

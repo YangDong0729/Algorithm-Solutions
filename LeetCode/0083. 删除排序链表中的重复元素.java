@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null)
             return null;

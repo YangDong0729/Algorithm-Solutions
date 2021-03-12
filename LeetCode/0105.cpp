@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     void build(TreeNode *&root, int preL, int inL, int len, vector<int> &preorder, vector<int> &inorder) {
         if (len == 0)

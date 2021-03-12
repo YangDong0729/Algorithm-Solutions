@@ -1,4 +1,4 @@
-﻿class LRUCache {
+class LRUCache {
 private:
     unordered_map<int, list<node>::iterator> map;
     list<node> cache;

@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 public:
     string longestPalindrome(string s) {
         string res;
@@ -18,7 +18,7 @@ public:
     // 返回以 s[l] 和 s[r] 为中心的最长回文串
     string palindrome(string &s, int l, int r) {
         // 防止索引越界
-        while (l >= 0 && r < s.size() && s[l] == s[r]) {
+        while (l >= 0 and r < s.size() and s[l] == s[r]) {
             l--;
             r++;
         }

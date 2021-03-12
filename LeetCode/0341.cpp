@@ -28,7 +28,7 @@ public class NestedIterator implements Iterator<Integer> {
     }
     public boolean hasNext() {
         // 循环拆分列表元素，直到列表第一个元素是整数类型
-        while (!list.isEmpty() && !list.get(0).isInteger()) {
+        while (!list.isEmpty() and !list.get(0).isInteger()) {
             // 当列表开头第一个元素是列表类型时，进入循环
             List<NestedInteger> first = list.remove(0).getList();
             // 将第一个列表打平并按顺序添加到开头

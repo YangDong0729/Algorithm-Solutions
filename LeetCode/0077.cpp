@@ -1,11 +1,11 @@
-﻿class Solution {
+class Solution {
 public:
     // 记录所有组合
     vector<vector<int>> res;
 
     /* 主函数 */
     vector<vector<int>> combine(int n, int k) {
-        if (k <= 0 || n <= 0)
+        if (k <= 0 or n <= 0)
             return res;
         vector<int> track;
         backtrack(n, k, 1, track);

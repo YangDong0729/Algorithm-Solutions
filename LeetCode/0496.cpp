@@ -4,7 +4,7 @@ public:
         unordered_map<int, int> nextGreater; // nums2 中全部元素的下一个更大的元素
         stack<int> s;
         for (int i = nums2.size() - 1; i >= 0; i--) {   // 倒着往栈里放
-            while (!s.empty() && s.top() <= nums2[i]) { // 判定个子高矮
+            while (!s.empty() and s.top() <= nums2[i]) { // 判定个子高矮
                 s.pop();                                // 矮个子起开，反正也被挡着了
             }
             nextGreater[nums2[i]] = s.empty() ? -1 : s.top(); // 这个元素身后的第一个高个

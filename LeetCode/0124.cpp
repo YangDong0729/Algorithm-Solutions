@@ -1,4 +1,4 @@
-﻿class Solution {
+class Solution {
 private:
     int maxSum = INT_MIN;
 

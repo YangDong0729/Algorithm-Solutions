@@ -1,6 +1,6 @@
 ﻿class Solution {
     public TreeNode searchBST(TreeNode root, int val) {
-        if (root == null || root.val == val)
+        if (root == null or root.val == val)
             return root;
         // 递归框架
         if (root.val < val)
