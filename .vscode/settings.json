@@ -1,3 +1,23 @@
 {
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "files.associations": {
+        "stack": "cpp",
+        "queue": "cpp",
+        "list": "cpp",
+        "iterator": "cpp",
+        "vector": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "xmemory": "cpp",
+        "algorithm": "cpp",
+        "ios": "cpp",
+        "xhash": "cpp",
+        "xiosbase": "cpp",
+        "xtree": "cpp",
+        "array": "cpp",
+        "utility": "cpp",
+        "unordered_set": "cpp",
+        "map": "cpp",
+        "iostream": "cpp"
+    },
 }
