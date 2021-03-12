@@ -14,14 +14,6 @@ struct record {
 
 struct gan {
     vector<int> member; // 团伙成员
-
-    bool operator<(gan &x) { // 对gang排序之前先把member排序
-        if (!is_sorted(member.begin(), member.end()))
-            sort(member.begin(), member.end());
-        if (!is_sorted(x.member.begin(), x.member.end()))
-            sort(x.member.begin(), x.member.end());
-        return member[0] < x.member[0];
-    }
 };
 
 int k, n, m;
@@ -100,7 +92,13 @@ int main() {
         gangs[head2index[head]].member.push_back(suspects[i]);
     }
 
-    sort(gangs, gangs + gangsCnt);
+    sort(gangs, gangs + gangsCnt, [](gan &a, gan &b) { // 对gang排序之前先把member排序
+        if (!is_sorted(a.member.begin(), a.member.end()))
+            sort(a.member.begin(), a.member.end());
+        if (!is_sorted(b.member.begin(), b.member.end()))
+            sort(b.member.begin(), b.member.end());
+        return a.member[0] < b.member[0];
+    });
 
     for (int i = 0; i < gangsCnt; ++i) {
         for (int j = 0; j < gangs[i].member.size(); ++j) {
