@@ -14,6 +14,7 @@ struct Student {
         else
             return a.id < b.id;
     }
+    Student(string id, int score, int loc_id, int loc_rank) : id(id), score(score), loc_id(loc_id), loc_rank(loc_rank) {}
 };
 
 int main() {

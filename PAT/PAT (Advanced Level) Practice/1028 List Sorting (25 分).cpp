@@ -8,7 +8,7 @@ struct Student {
     static int c;
     string s[3];
 
-    bool operator<(const Student& x) {
+    bool operator<(const Student& x) const {
         if (s[c - 1] != x.s[c - 1]) return s[c - 1] < x.s[c - 1];
         else return s[0] < x.s[0];
     }

@@ -39,7 +39,7 @@ struct record {
 
     record(int v, int n) : val(v), sum(n) {}
 
-    bool operator<(record &x) {
+    bool operator<(const record &x) const {
         if (sum != x.sum)
             return sum < x.sum;
         else
