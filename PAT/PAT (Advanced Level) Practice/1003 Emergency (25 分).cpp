@@ -1,5 +1,5 @@
-﻿#include <iostream>
-#include <algorithm>
+﻿#include <algorithm>
+#include <iostream>
 #include <queue>
 #include <vector>
 
@@ -10,7 +10,7 @@ using namespace std;
 
 struct edge {
     int to, weight;
-    bool operator>(const edge& x) const {
+    bool operator>(const edge &x) const {
         return weight > x.weight;
     }
 };
@@ -25,7 +25,7 @@ void dijkstra(int start) {
     dist[start] = 0;
 
     priority_queue<edge, vector<edge>, greater<edge>> pq;
-    pq.push({ start, 0 });
+    pq.push({start, 0});
 
     path_cnt[start] = 1;
     team_sum[start] = team_num[start];
@@ -39,19 +39,19 @@ void dijkstra(int start) {
 
         visited[u] = true;
 
-        if (dist[u] < uDist) continue;
+        if (dist[u] < uDist)
+            continue;
 
-        for (auto& e : graph[u]) {
+        for (auto &e : graph[u]) {
             int v = e.to;
             int uvWeight = e.weight;
 
             if (not visited[v] and (dist[v] == INF or dist[v] > dist[u] + uvWeight)) {
                 dist[v] = dist[u] + uvWeight;
-                pq.push({ v, dist[v] });
+                pq.push({v, dist[v]});
                 path_cnt[v] = path_cnt[u];
                 team_sum[v] = team_num[v] + team_sum[u];
-            }
-            else if (dist[v] == dist[u] + uvWeight) {
+            } else if (dist[v] == dist[u] + uvWeight) {
                 path_cnt[v] += path_cnt[u];
                 if (team_sum[v] < team_num[v] + team_sum[u])
                     team_sum[v] = team_num[v] + team_sum[u];
@@ -59,17 +59,22 @@ void dijkstra(int start) {
         }
     }
 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
 int main() {
     int n, m, c1, c2;
     cin >> n >> m >> c1 >> c2;
-    for (int i = 0; i < n; ++i) cin >> team_num[i];
+
+    for (int i = 0; i < n; ++i)
+        cin >> team_num[i];
+
     for (int i = 0; i < m; ++i) {
         int a, b, l;
         cin >> a >> b >> l;
-        graph[a].push_back({ b, l });
-        graph[b].push_back({ a, l });
+        graph[a].push_back({b, l});
+        graph[b].push_back({a, l});
     }
+
     dijkstra(c1);
+
     cout << path_cnt[c2] << " " << team_sum[c2];
 }

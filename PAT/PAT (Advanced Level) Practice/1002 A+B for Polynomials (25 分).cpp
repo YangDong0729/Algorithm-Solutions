@@ -1,9 +1,9 @@
 #include <cstdio>
 
-int main() {
-    constexpr auto SIZE = 10005;
-    double poly[SIZE] = {};
+constexpr auto SIZE = 10005;
+double poly[SIZE];
 
+int main() {
     for (int i = 0; i < 2; ++i) {
         int k;
         scanf("%d", &k);
