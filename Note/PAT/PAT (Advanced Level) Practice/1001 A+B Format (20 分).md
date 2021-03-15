@@ -1,4 +1,3 @@
-# A1001 A+B Format
 Calculate $a+b$ and output the sum in standard format -- that is, the digits must be separated into groups of three by commas (unless there are less than four digits).
 
 ### Input Specification:
@@ -18,15 +17,13 @@ For each test case, you should output the sum of $a$ and $b$ in one line. The su
 
     -999,991
 
-# 题意
+# 题解
 
 计算$A+B$，输出时每隔三位在数字间加上","。
 
-# 思路
+
 
 从前到后输出每一位，如果当前位满足`(i + 1) % 3 == len % 3`（i从0开始），那么就应该在这位之后输出一个逗号，排除负号和最后一位的情况。
-
-# 代码
 
 ```cpp
 #include <iostream>
