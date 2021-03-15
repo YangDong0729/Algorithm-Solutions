@@ -20,20 +20,12 @@ int main() {
         }
         if (sum <= M) {
             ways++;
-            // for (int i = 0; i < len; i++) {
-            //     cout << prices[i] << " ";
-            // }
-            // cout << "\n";
         }
         for (int i = len; i < N; i++) {
             sum -= prices[i - len];
             sum += prices[i];
             if (sum <= M) {
                 ways++;
-                // for (int j = i - len + 1; j <= i; j++) {
-                //     cout << prices[j] << " ";
-                // }
-                // cout << "\n";
             }
         }
     }
